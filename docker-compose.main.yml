@@ -1,0 +1,438 @@
+version: '3.7'
+
+volumes:
+    mysql-data:
+        driver: local
+    hsm-data:
+        driver: local
+
+networks:
+    bridge:
+    healthauthority:
+    hsm-private:
+    hsm-simulator:
+    private:
+    public:
+
+services:
+    # healthauthority
+    messaging-api:
+        build:
+            context: ./services
+            dockerfile: messaging-api/Dockerfile
+        depends_on:
+            - private-mysql
+        environment:
+            APP_ENV: ${MESSAGING_API_ENV-production}
+            JWT_SECURE: ${MESSAGING_API_JWT_SECURE-true}
+            JWT_MAX_LIFETIME: ${MESSAGING_API_JWT_MAX_LIFETIME-60}
+            LOG_CHANNEL: ${MESSAGING_API_LOG_CHANNEL-stderr}
+            LOG_LEVEL: ${MESSAGING_API_LOG_LEVEL-debug}
+            MESSAGING_API_JWT_SECRETS: ${MESSAGING_API_JWT_SECRETS}
+            MYSQL_HOST: 'private-mysql'
+            MYSQL_DATABASE: ${MESSAGING_APP_MYSQL_DATABASE}
+            MYSQL_USERNAME: ${MESSAGING_API_MYSQL_USERNAME}
+            MYSQL_PASSWORD: ${MESSAGING_API_MYSQL_PASSWORD}
+            REDIS_HOST: ${PRIVATE_REDIS_HOST}
+            REDIS_PORT: ${PRIVATE_REDIS_PORT-6379}
+            REDIS_USERNAME: ${PRIVATE_REDIS_USERNAME}
+            REDIS_PASSWORD: ${PRIVATE_REDIS_PASSWORD}
+            REDIS_LIST_MESSAGE_DELETE: ${REDIS_LIST_MESSAGE_DELETE-message_delete}
+            REDIS_LIST_MESSAGE_SAVE: ${REDIS_LIST_MESSAGE_SAVE-message_save}
+            TZ: 'UTC'
+            ATTACHMENTS_FILESYSTEM: ${ATTACHMENTS_FILESYSTEM-attachments-s3}
+            S3_ATTACHMENTS_ENDPOINT: ${S3_ATTACHMENTS_ENDPOINT}
+            S3_ATTACHMENTS_API_PORT: ${S3_ATTACHMENTS_API_PORT-9090}
+            S3_ATTACHMENTS_CONSOLE_PORT: ${S3_ATTACHMENTS_CONSOLE_PORT-9091}
+            S3_ATTACHMENTS_ACCESS_KEY: ${S3_ATTACHMENTS_ACCESS_KEY}
+            S3_ATTACHMENTS_SECRET_KEY: ${S3_ATTACHMENTS_SECRET_KEY}
+            S3_ATTACHMENTS_REGION: ${S3_ATTACHMENTS_REGION-dummy}
+            S3_ATTACHMENTS_VERSION: ${S3_ATTACHMENTS_VERSION-latest}
+            S3_ATTACHMENTS_BUCKET: ${S3_ATTACHMENTS_BUCKET-attachments}
+        networks:
+            - private
+            - healthauthority
+        volumes:
+            - ./attachment-data:/tmp/attachment-data:rw
+
+    # private
+    messaging-app:
+        build:
+            context: ./services
+            dockerfile: messaging-app/Dockerfile
+        environment:
+            APP_ENV: ${MESSAGING_APP_ENV-production}
+            HASH_SALT: ${HASH_SALT:-hash_salt}
+            JWT_SECURE: ${MESSAGING_APP_JWT_SECURE-true}
+            JWT_MAX_LIFETIME: ${MESSAGING_APP_JWT_MAX_LIFETIME-60}
+            LOG_CHANNEL: ${MESSAGING_APP_LOG_CHANNEL-stderr}
+            LOG_LEVEL: ${MESSAGING_APP_LOG_LEVEL-debug}
+            MESSAGEBOX_JWT_SECRET: ${MESSAGEBOX_JWT_SECRET}
+            MYSQL_HOST: 'private-mysql'
+            MYSQL_DATABASE: ${MESSAGING_APP_MYSQL_DATABASE}
+            MYSQL_USERNAME: ${MESSAGING_APP_MYSQL_USER}
+            MYSQL_PASSWORD: ${MESSAGING_APP_MYSQL_PASSWORD}
+            OTP_SMS_ENABLED: ${MESSAGING_APP_OTP_SMS_ENABLED-false}
+            PAIRING_CODE_LIFETIME_IN_HOURS: ${MESSAGING_APP_PAIRING_CODE_LIFETIME_IN_HOURS-48}
+            PAIRING_CODE_MESSAGING_APP_PRIVATE_KEY: ${MESSAGING_APP_PAIRING_CODE_PRIVATE_KEY:-}
+            PAIRING_CODE_MESSAGEBOX_PUBLIC_KEY: ${MESSAGEBOX_PAIRING_CODE_PUBLIC_KEY:-}
+            REDIS_HOST: ${PRIVATE_REDIS_HOST}
+            REDIS_PORT: ${PRIVATE_REDIS_PORT-6379}
+            REDIS_USERNAME: ${PRIVATE_REDIS_USERNAME}
+            REDIS_PASSWORD: ${PRIVATE_REDIS_PASSWORD}
+            REDIS_LIST_MAIL: ${REDIS_LIST_MAIL-mail}
+            REDIS_LIST_MESSAGE_DELETE: ${REDIS_LIST_MESSAGE-message_delete}
+            REDIS_LIST_MESSAGE_SAVE: ${REDIS_LIST_MESSAGE-message_save}
+            REDIS_LIST_NOTIFICATION: ${REDIS_LIST_NOTIFICATION-notification}
+            HSM_REDIS_HOST: ${HSM_REDIS_HOST:-hsm-redis}
+            HSM_REDIS_PORT: ${HSM_REDIS_PORT:-6379}
+            HSM_REDIS_USERNAME: ${HSM_REDIS_USERNAME:-hsm_redis_username}
+            HSM_REDIS_PASSWORD: ${HSM_REDIS_PASSWORD:-hsm_redis_password}
+            SMS_SENDER_NAME: ${MESSAGING_APP_SMS_SENDER_NAME:-}
+            SMS_PROVIDER: ${MESSAGING_APP_SMS_PROVIDER:-}
+            SMS_SPRYNG_API_KEY: ${MESSAGING_APP_SMS_SPRYNG_API_KEY:-}
+            TZ: 'UTC'
+            PSEUDO_BSN_SERVICE: ${PSEUDO_BSN_SERVICE:-local}
+            MITTENS_BASE_URI: ${MITTENS_BASE_URI:-}
+            MITTENS_DIGID_ACCESS_TOKEN: ${MITTENS_DIGID_ACCESS_TOKEN:-}
+            MITTENS_CLIENT_SSL_CERT: ${MITTENS_CLIENT_SSL_CERT:-}
+            MITTENS_CLIENT_SSL_KEY: ${MITTENS_CLIENT_SSL_KEY:-}
+            ATTACHMENTS_FILESYSTEM: ${ATTACHMENTS_FILESYSTEM-attachments-s3}
+            S3_ATTACHMENTS_ENDPOINT: ${S3_ATTACHMENTS_ENDPOINT}
+            S3_ATTACHMENTS_API_PORT: ${S3_ATTACHMENTS_API_PORT-9090}
+            S3_ATTACHMENTS_CONSOLE_PORT: ${S3_ATTACHMENTS_CONSOLE_PORT-9091}
+            S3_ATTACHMENTS_ACCESS_KEY: ${S3_ATTACHMENTS_ACCESS_KEY}
+            S3_ATTACHMENTS_SECRET_KEY: ${S3_ATTACHMENTS_SECRET_KEY}
+            S3_ATTACHMENTS_REGION: ${S3_ATTACHMENTS_REGION-dummy}
+            S3_ATTACHMENTS_VERSION: ${S3_ATTACHMENTS_VERSION-latest}
+            S3_ATTACHMENTS_BUCKET: ${S3_ATTACHMENTS_BUCKET-attachments}
+        networks:
+            - bridge
+            - hsm-private
+            - hsm-simulator
+            - private
+
+    messaging-app-console:
+        build:
+            context: ./services
+            dockerfile: messaging-app/Dockerfile-console
+        environment:
+            APP_ENV: ${MESSAGING_APP_ENV-production}
+            HASH_SALT: ${HASH_SALT:-hash_salt}
+            LOG_CHANNEL: ${MESSAGING_APP_LOG_CHANNEL-stderr}
+            LOG_LEVEL: ${MESSAGING_APP_LOG_LEVEL-debug}
+            MAIL_DEFAULT_FROM_ADDRESS: ${MESSAGING_APP_MAIL_DEFAULT_FROM_ADDRESS}
+            MYSQL_HOST: 'private-mysql'
+            MYSQL_DATABASE: ${MESSAGING_APP_MYSQL_DATABASE}
+            MYSQL_USERNAME: ${MESSAGING_APP_MYSQL_USER}
+            MYSQL_PASSWORD: ${MESSAGING_APP_MYSQL_PASSWORD}
+            PAIRING_CODE_LIFETIME_IN_HOURS: ${MESSAGING_APP_PAIRING_CODE_LIFETIME_IN_HOURS-48}
+            PAIRING_CODE_MESSAGING_APP_PRIVATE_KEY: ${MESSAGING_APP_PAIRING_CODE_PRIVATE_KEY:-}
+            PAIRING_CODE_MESSAGEBOX_PUBLIC_KEY: ${MESSAGEBOX_PAIRING_CODE_PUBLIC_KEY:-}
+            MESSAGEBOX_URL: ${MESSAGEBOX_APP_URL}
+            REDIS_HOST: ${PRIVATE_REDIS_HOST}
+            REDIS_PORT: ${PRIVATE_REDIS_PORT-6379}
+            REDIS_USERNAME: ${PRIVATE_REDIS_USERNAME}
+            REDIS_PASSWORD: ${PRIVATE_REDIS_PASSWORD}
+            REDIS_LIST_MAIL: ${REDIS_LIST_MAIL-mail}
+            REDIS_LIST_MESSAGE_DELETE: ${REDIS_LIST_MESSAGE-message_delete}
+            REDIS_LIST_MESSAGE_SAVE: ${REDIS_LIST_MESSAGE-message_save}
+            REDIS_LIST_NOTIFICATION: ${REDIS_LIST_NOTIFICATION-notification}
+            HSM_REDIS_HOST: ${HSM_REDIS_HOST:-hsm-redis}
+            HSM_REDIS_PORT: ${HSM_REDIS_PORT:-6379}
+            HSM_REDIS_USERNAME: ${HSM_REDIS_USERNAME:-hsm_redis_username}
+            HSM_REDIS_PASSWORD: ${HSM_REDIS_PASSWORD:-hsm_redis_password}
+            SMTP_USER: ${MESSAGING_APP_SMTP_USER}
+            SMTP_PASS: ${MESSAGING_APP_SMTP_PASS}
+            SMTP_HOST: ${MESSAGING_APP_SMTP_HOST}
+            SMTP_PORT: ${MESSAGING_APP_SMTP_PORT}
+            OTP_SMS_ENABLED: ${MESSAGING_APP_OTP_SMS_ENABLED-false}
+            SMS_SENDER_NAME: ${MESSAGING_APP_SMS_SENDER_NAME:-}
+            SMS_PROVIDER: ${MESSAGING_APP_SMS_PROVIDER:-}
+            SMS_SPRYNG_API_KEY: ${MESSAGING_APP_SMS_SPRYNG_API_KEY:-}
+            TZ: 'UTC'
+            PSEUDO_BSN_SERVICE: ${PSEUDO_BSN_SERVICE:-local}
+            MITTENS_BASE_URI: ${MITTENS_BASE_URI:-}
+            MITTENS_DIGID_ACCESS_TOKEN: ${MITTENS_DIGID_ACCESS_TOKEN:-}
+            MITTENS_CLIENT_SSL_CERT: ${MITTENS_CLIENT_SSL_CERT:-}
+            MITTENS_CLIENT_SSL_KEY: ${MITTENS_CLIENT_SSL_KEY:-}
+        networks:
+            - hsm-private
+            - private
+        restart: on-failure
+
+    messaging-app-queue-worker:
+        extends:
+            service: messaging-app-console
+        depends_on:
+            - private-mysql
+            - private-redis
+        command: /src/console queue:work
+
+    private-mysql:
+        image: mysql/mysql-server:8.0.27
+        volumes:
+            - mysql-data:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: ${MESSAGING_APP_MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${MESSAGING_APP_MYSQL_ROOT_PASSWORD}
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_USER: ${MESSAGING_APP_MYSQL_USER}
+            MYSQL_PASSWORD: ${MESSAGING_APP_MYSQL_PASSWORD}
+            MYSQL_READ_ONLY_USERNAME: ${MESSAGING_API_MYSQL_USERNAME}
+            MYSQL_READ_ONLY_PASSWORD: ${MESSAGING_API_MYSQL_PASSWORD}
+        networks:
+            - private
+
+    private-mysql-client:
+        image: mysql/mysql-server:8.0.27
+        depends_on:
+            - private-mysql
+        entrypoint: [ "mysql", "--host=private-mysql", "--user=root", "--password=$MESSAGING_APP_MYSQL_ROOT_PASSWORD", "$MESSAGING_APP_MYSQL_DATABASE" ]
+        environment:
+            MYSQL_PASSWORD: ${MESSAGING_APP_MYSQL_ROOT_PASSWORD}
+            TZ: 'UTC'
+        networks:
+            - private
+
+    private-redis:
+        build:
+            context: ./services
+            dockerfile: redis/Dockerfile
+        environment:
+            REDIS_USERNAME: ${PRIVATE_REDIS_USERNAME}
+            REDIS_PASSWORD: ${PRIVATE_REDIS_PASSWORD}
+            TZ: 'UTC'
+        networks:
+            - healthauthority
+            - private
+
+    # public
+    messagebox:
+        build:
+            args:
+                INSTALL_DEV_TOOLS: ${INSTALL_DEV_TOOLS-0}
+            context: ./services
+            dockerfile: messagebox/Dockerfile
+        environment:
+            APP_NAME: ${MESSAGEBOX_APP_NAME-messagebox}
+            APP_ENV: ${MESSAGEBOX_APP_ENV}
+            APP_ENV_NAME: ${MESSAGEBOX_APP_ENV_NAME}
+            APP_KEY: ${MESSAGEBOX_APP_KEY}
+            APP_DEBUG: ${MESSAGEBOX_APP_DEBUG:-false}
+            APP_URL: ${MESSAGEBOX_APP_URL}
+            JWT_SECRET: ${MESSAGEBOX_JWT_SECRET}
+            JWT_MAX_LIFETIME: ${MESSAGING_APP_JWT_MAX_LIFETIME-60}
+            LOG_CHANNEL: ${MESSAGEBOX_APP_LOG_CHANNEL-stderr}
+            LOG_LEVEL: ${MESSAGEBOX_APP_LOG_LEVEL-debug}
+            PSEUDO_BSN_SERVICE: ${PSEUDO_BSN_SERVICE:-local}
+            MITTENS_BASE_URI: ${MITTENS_BASE_URI:-}
+            MITTENS_DIGID_ACCESS_TOKEN: ${MITTENS_DIGID_ACCESS_TOKEN:-}
+            MITTENS_CLIENT_SSL_CERT: ${MITTENS_CLIENT_SSL_CERT:-}
+            MITTENS_CLIENT_SSL_KEY: ${MITTENS_CLIENT_SSL_KEY:-}
+            MITTENS_MOCK_ENCRYPTION_PUBLIC_KEY: ${MESSAGEBOX_MITTENS_MOCK_ENCRYPTION_PUBLIC_KEY:-}
+            MITTENS_MOCK_ENCRYPTION_PRIVATE_KEY: ${MESSAGEBOX_MITTENS_MOCK_ENCRYPTION_PRIVATE_KEY:-}
+
+            BRIDGE_REDIS_HOST: ${BRIDGE_REDIS_HOST}
+            BRIDGE_REDIS_PORT: ${BRIDGE_REDIS_PORT-6379}
+            BRIDGE_REDIS_USERNAME: ${BRIDGE_REDIS_USERNAME}
+            BRIDGE_REDIS_PASSWORD: ${BRIDGE_REDIS_PASSWORD}
+            PUBLIC_REDIS_HOST: ${PUBLIC_REDIS_HOST}
+            PUBLIC_REDIS_PORT: ${PUBLIC_REDIS_PORT-6379}
+            PUBLIC_REDIS_USERNAME: ${PUBLIC_REDIS_USERNAME}
+            PUBLIC_REDIS_PASSWORD: ${PUBLIC_REDIS_PASSWORD}
+            TRUSTED_PROXIES: ${TRUSTED_PROXIES}
+            OTP_SMS_ENABLED: ${OTP_SMS_ENABLED-false}
+            PAIRING_CODE_MESSAGEBOX_PRIVATE_KEY: ${MESSAGEBOX_PAIRING_CODE_PRIVATE_KEY:-}
+            PAIRING_CODE_MESSAGING_APP_PUBLIC_KEY: ${MESSAGING_APP_PAIRING_CODE_PUBLIC_KEY:-}
+            FEATURE_PSEUDO_BSN_BY_URL: ${MESSAGEBOX_FEATURE_PSEUDO_BSN_BY_URL-true}
+            TZ: 'UTC'
+            DIGID_RESPONSE_TYPE: ${MESSAGEBOX_DIGID_RESPONSE_TYPE}
+            DIGID_CLIENT_ID: ${MESSAGEBOX_DIGID_CLIENT_ID}
+            DIGID_REDIRECT_URI: ${MESSAGEBOX_DIGID_REDIRECT_URI}
+            DIGID_ISSUER_URI: ${MESSAGEBOX_DIGID_ISSUER_URI}
+            DIGID_SCOPE: ${MESSAGEBOX_DIGID_SCOPE}
+            DIGID_ISSUER: ${MESSAGEBOX_DIGID_ISSUER}
+            CLOCKWORK_ENABLE: ${CLOCKWORK_ENABLE-false}
+            ATTACHMENTS_FILESYSTEM: ${ATTACHMENTS_FILESYSTEM-attachments-s3}
+            S3_ATTACHMENTS_ENDPOINT: ${S3_ATTACHMENTS_ENDPOINT}
+            S3_ATTACHMENTS_API_PORT: ${S3_ATTACHMENTS_API_PORT-9090}
+            S3_ATTACHMENTS_CONSOLE_PORT: ${S3_ATTACHMENTS_CONSOLE_PORT-9091}
+            S3_ATTACHMENTS_ACCESS_KEY: ${S3_ATTACHMENTS_ACCESS_KEY}
+            S3_ATTACHMENTS_SECRET_KEY: ${S3_ATTACHMENTS_SECRET_KEY}
+            S3_ATTACHMENTS_REGION: ${S3_ATTACHMENTS_REGION-dummy}
+            S3_ATTACHMENTS_VERSION: ${S3_ATTACHMENTS_VERSION-latest}
+            S3_ATTACHMENTS_BUCKET: ${S3_ATTACHMENTS_BUCKET-attachments}
+        networks:
+            - bridge
+            - public
+        depends_on:
+            - bridge-redis
+            - public-redis
+        volumes:
+            - ./attachment-data:/tmp/attachment-data
+
+    public-redis:
+        build:
+            context: ./services
+            dockerfile: redis/Dockerfile
+        environment:
+            REDIS_USERNAME: ${PUBLIC_REDIS_USERNAME}
+            REDIS_PASSWORD: ${PUBLIC_REDIS_PASSWORD}
+            TZ: 'UTC'
+        networks:
+            - public
+
+    # bridge
+    bridge:
+        build:
+            context: ./services
+            dockerfile: bridge/Dockerfile
+        environment:
+            DEBUG: ${BRIDGE_APP_DEBUG-false}
+            LOG_CHANNEL: ${BRIDGE_LOG_CHANNEL-stderr}
+            LOG_LEVEL: ${BRIDGE_LOG_LEVEL-debug}
+            REDIS_HOST: ${BRIDGE_REDIS_HOST}
+            REDIS_PORT: ${BRIDGE_REDIS_PORT-6379}
+            REDIS_USERNAME: ${BRIDGE_REDIS_USERNAME}
+            REDIS_PASSWORD: ${BRIDGE_REDIS_PASSWORD}
+            MESSAGING_APP_BASE_URI: ${MESSAGING_APP_URI}
+            TZ: 'UTC'
+        networks:
+            - private
+            - bridge
+        restart: on-failure
+
+    bridge-redis:
+        build:
+            context: ./services
+            dockerfile: redis/Dockerfile
+        environment:
+            REDIS_USERNAME: ${BRIDGE_REDIS_USERNAME}
+            REDIS_PASSWORD: ${BRIDGE_REDIS_PASSWORD}
+            TZ: 'UTC'
+        networks:
+            - public
+            - bridge
+
+    bridge-attachment-by-uuid:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:attachment-by-uuid
+
+    bridge-messages:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:messages
+
+    bridge-messages-authentication-properties:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:messages-authentication-properties
+
+    bridge-messages-by-uuid:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:messages-by-uuid
+
+    bridge-messages-link:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:messages-link
+
+    bridge-messages-incorrect-phone:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:messages-incorrect-phone
+
+    bridge-messages-unlink:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:messages-unlink
+
+    bridge-get-otp-code:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:get-otp-code
+
+    bridge-request-otp-code:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:request-otp-code
+
+    bridge-pairing-code:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:pairing-code
+
+    bridge-pairing-code-by-uuid:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:pairing-code-by-uuid
+
+    bridge-pairing-code-renew:
+        depends_on:
+            - bridge-redis
+        extends:
+            service: bridge
+        command: /src/bin/bridge process:pairing-code-renew
+
+    #hsm
+    hsm-redis:
+        build:
+            context: ./services
+            dockerfile: redis/Dockerfile
+        environment:
+            REDIS_USERNAME: ${HSM_REDIS_USERNAME:-hsm_redis_username}
+            REDIS_PASSWORD: ${HSM_REDIS_PASSWORD:-hsm_redis_password}
+        networks:
+            - hsm-private
+            - hsm-simulator
+
+    hsm:
+        image: ghcr.io/minvws/nl-covid19-dbco-app-hsm-private/hsm-simulator:0.1.3
+        platform: linux/i386
+        volumes:
+            - hsm-data:/data
+        networks:
+            - hsm-simulator
+
+    hsm-manager:
+        extends:
+            service: messaging-app
+        command: php /src/console security:manage-keys
+        restart: on-failure
+        environment:
+            HSM_REDIS_HOST: ${HSM_REDIS_HOST:-hsm-redis}
+            HSM_REDIS_PORT: ${HSM_REDIS_PORT-6379}
+            HSM_REDIS_USERNAME: ${HSM_REDIS_USERNAME:-hsm_redis_username}
+            HSM_REDIS_PASSWORD: ${HSM_REDIS_PASSWORD:-hsm_redis_password}
+            SECURITY_MODULE_TYPE: ${SECURITY_MODULE_TYPE:-hsm}
+            SECURITY_MODULE_SIM_KEY_PATH: ${SECURITY_MODULE_SIM_KEY_PATH:-/keys}
+            SECURITY_MODULE_USER_PIN: ${HSM_USER_PIN:-654321}
+            SECURITY_MODULE_NONCE_USE_PHP_RANDOM_BYTES: ${SECURITY_MODULE_NONCE_USE_PHP_RANDOM_BYTES:-1}
+            SECURITY_MODULE_STORAGE_TERM_SHORT_CLEANUP_INTERVAL: ${SECURITY_MODULE_STORAGE_TERM_SHORT_CLEANUP_INTERVAL:-3}
+            SECURITY_MODULE_STORAGE_TERM_SHORT_ACTIVE_INTERVAL: ${SECURITY_MODULE_STORAGE_TERM_SHORT_ACTIVE_INTERVAL:-31}
+

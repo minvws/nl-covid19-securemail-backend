@@ -1,0 +1,4 @@
+#!/bin/bash
+DOCKER_COMPOSE=$(dirname $0)/docker-compose-dev
+$DOCKER_COMPOSE exec messagebox php enums/generate.php
+$DOCKER_COMPOSE exec messagebox npx prettier --write resources/js/types/enums/*

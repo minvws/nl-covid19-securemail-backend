@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'fonts';
+
+// Import Bootstrap / Vue assets.
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+@import 'alert';
+@import 'button';
+@import 'card';
+@import 'container';
+@import 'dropdown';
+@import 'form';
+@import 'icon';
+@import 'layout';
+@import 'list-group';
+@import 'list-items';
+@import 'modal';
+@import 'navbar';
+@import 'skiplink';
+@import 'transition';
+@import 'typography';
+@import 'version';
+
+body {
+    @media print {
+        background: white;
+    }
+}

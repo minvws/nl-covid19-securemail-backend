@@ -1,0 +1,109 @@
+# Default values for messenger-api
+
+replicaCount: 1
+image:
+  repository: ghcr.io/minvws/nl-covid19-securemail-backend-private/messaging-api
+  tag: 0.0.0
+  pullPolicy: IfNotPresent
+imagePullSecrets:
+service:
+  enabled: true
+  type: ClusterIP
+  httpPort: 8080
+  externalPort: 8080
+# metrics-server add-on required
+hpa:
+  enabled: false
+  maxReplicas: 10
+  # average total CPU usage per pod (1-100)
+  cpu:
+  # average memory usage per pod (100Mi-1Gi)
+  memory:
+  # average http requests per second per pod (k8s-prometheus-adapter)
+  requests:
+# Environment variables that will be passed into the container
+# env:
+  # APP_ENV: production
+  # DEBUG: "false"
+  # JWT_MAX_LIFETIME: "60"
+  # JWT_SECURE: "true"
+  # LOG_CHANNEL: "stderr"
+  # LOG_LEVEL: "debug"
+  # MYSQL_DATABASE: securemail
+  # MYSQL_HOST: mysql
+  # REDIS_HOST: redis-securemail-private-test
+  # REDIS_LIST_MESSAGE_DELETE: message_delete
+  # REDIS_LIST_MESSAGE_SAVE: message_save
+  # REDIS_PORT: "26379"
+  # REDIS_SENTINEL_SERVICE: mymaster
+env: {}
+# Environment variables secrets that will be passed into the container.
+# When set. This will generate a Secret with the name `app.fullname`.
+# When not set. You can create a secret yourself with the name `app.fullname`.
+# envSecrets:
+  # MYSQL_PASSWORD: changeme
+  # MYSQL_USERNAME: changeme
+  # MESSAGING_API_JWT_SECRETS: platform:changeme_unique
+envSecrets: {}
+# Configure volumes for mounting files (e.g. using ConfigMap, Secret) in your containers
+volumeMounts: ""
+volumes: ""
+# Apache
+apache:
+  run:
+    user: "www-data"
+    group: "www-data"
+serviceAccount:
+  # Specifies whether a service account should be created
+  enabled: false
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+serviceMonitor:
+  enabled: false
+  interval: 15s
+ingress:
+  enabled: false
+  annotations: {}
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  path: /*
+  hosts: []
+  #    - public-api.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+livenessProbe: {}
+#livenessProbe:
+  # httpGet:
+  #   path: /
+  #   port: http
+  # initialDelaySeconds: 5
+  # periodSeconds: 10
+  # timeoutSeconds: 1
+  # failureThreshold: 3
+  # successThreshold: 1
+readinessProbe: {}
+# readinessProbe:
+#   httpGet:
+#     path: /
+#     port: http
+#   initialDelaySeconds: 10
+#   periodSeconds: 30
+#   timeoutSeconds: 5
+#   failureThreshold: 3
+#   successThreshold: 1
+resources:
+  limits:
+  requests:
+    cpu: 1m
+    memory: 16Mi
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}

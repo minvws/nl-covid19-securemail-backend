@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'RijksoverheidSansHeading';
+    src: url("../fonts/RijksoverheidSansHeading-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: 'RijksoverheidSansHeading';
+    src: url("../fonts/RijksoverheidSansHeading-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: 'RijksoverheidSansText';
+    src: url("../fonts/RijksoverheidSansText-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: 'RijksoverheidSansText';
+    src: url("../fonts/RijksoverheidSansText-Italic.otf") format("opentype");
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: 'RijksoverheidSansText';
+    src: url("../fonts/RijksoverheidSansText-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: 'RijksoverheidSansText';
+    src: url("../fonts/RijksoverheidSansText-BoldItalic.otf") format("opentype");
+    font-style: italic;
+    font-weight: bold;
+  }
+  

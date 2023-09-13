@@ -1,0 +1,64 @@
+#!/bin/bash
+BASE_PATH=$(dirname $0)/..
+DOCKER_COMPOSE="$(dirname $0)/docker-compose-dev"
+
+. $BASE_PATH/.env
+
+echo
+echo "===[ BUILD CONTAINERS ]==="
+
+$DOCKER_COMPOSE build --pull
+$DOCKER_COMPOSE up -d --remove-orphans
+
+if [ "${SECURITY_MODULE_TYPE:-hsm}" == "hsm" ]; then
+  echo
+  echo "=====[ SETUP HSM ]======================="
+  $DOCKER_COMPOSE up -d hsm
+  sleep 5
+  $DOCKER_COMPOSE -f docker-compose.setup.yml run --rm hsm-setup
+fi
+
+echo
+echo "=====[ SETUP HSM KEYS ]========================="
+$DOCKER_COMPOSE run --rm hsm-manager /src/console security:manage-keys -p -s
+
+echo
+echo "===[ SETUP DATABASE CONTAINER ]==="
+
+$DOCKER_COMPOSE up -d private-mysql
+
+while ! $DOCKER_COMPOSE run --rm private-mysql-client -e "SELECT 1" > /dev/null 2>&1; do
+	echo "waiting for database to start..."
+	sleep 0.5
+done
+
+$DOCKER_COMPOSE run --rm private-mysql-client -e "CREATE USER '$MESSAGING_API_MYSQL_USERNAME'@'%' IDENTIFIED BY '$MESSAGING_API_MYSQL_PASSWORD';"
+$DOCKER_COMPOSE run --rm private-mysql-client -e "GRANT SELECT ON $MESSAGING_APP_MYSQL_DATABASE.* TO '$MESSAGING_API_MYSQL_USERNAME'@'%';"
+$DOCKER_COMPOSE run --rm private-mysql-client -e "FLUSH PRIVILEGES;"
+
+echo
+echo "===[ SETUP BRIDGE ]==="
+
+$DOCKER_COMPOSE run --rm --entrypoint composer bridge install
+
+echo
+echo "===[ SETUP MESSAGING-API ]==="
+$DOCKER_COMPOSE run --rm --entrypoint composer messaging-api install
+
+echo
+echo "===[ SETUP MESSAGING-APP ]==="
+
+$DOCKER_COMPOSE run --rm --entrypoint composer messaging-app install
+$DOCKER_COMPOSE run --rm --entrypoint php messaging-app vendor/bin/phinx migrate
+$DOCKER_COMPOSE run --rm --entrypoint npm messaging-app install
+$DOCKER_COMPOSE run --rm --entrypoint npm messaging-app run compile-email
+
+echo
+echo "===[ SETUP MESSAGEBOX ]==="
+
+$DOCKER_COMPOSE run --rm --entrypoint composer messagebox install
+$DOCKER_COMPOSE run --rm --entrypoint npm messagebox install
+$DOCKER_COMPOSE run --rm --entrypoint npm messagebox run dev
+
+echo
+echo "===[ ALL DONE ]==="

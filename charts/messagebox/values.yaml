@@ -1,0 +1,116 @@
+# Default values for messagebox
+
+replicaCount: 1
+image:
+  repository: ghcr.io/minvws/nl-covid19-securemail-backend-private/messagebox
+  tag: 0.0.0
+  pullPolicy: IfNotPresent
+imagePullSecrets:
+service:
+  enabled: true
+  type: ClusterIP
+  httpPort: 8080
+  externalPort: 8080
+# metrics-server add-on required
+hpa:
+  enabled: false
+  maxReplicas: 10
+  # average total CPU usage per pod (1-100)
+  cpu:
+  # average memory usage per pod (100Mi-1Gi)
+  memory:
+  # average http requests per second per pod (k8s-prometheus-adapter)
+  requests:
+# Environment variables that will be passed into the container
+# env:
+  # APP_DEBUG: "false"
+  # APP_ENV: production
+  # APP_NAME: messagebox
+  # APP_URL: https://example.com
+  # IDENTITY_HUB_REDIRECT_URL: /auth/login
+  # JWT_MAX_LIFETIME: "60"
+  # LOG_CHANNEL: "stderr"
+  # LOG_LEVEL: "debug"
+  # REDIS_HOST: redis-securemail-bridge
+  # REDIS_PORT: "26379"
+  # REDIS_SENTINEL_SERVICE: mymaster
+env: {}
+# Environment variables secrets that will be passed into the container.
+# When set. This will generate a Secret with the name `app.fullname`.
+# When not set. You can create a secret yourself with the name `app.fullname`.
+# envSecrets:
+  # APP_KEY: changeme
+  # IDENTITY_HUB_CLIENT_ID: changeme
+  # IDENTITY_HUB_CLIENT_SECRET: changeme
+  # JWT_SECRET: changeme
+envSecrets: {}
+# Configure volumes for mounting files (e.g. using ConfigMap, Secret) in your containers. See example below.
+volumeMounts: ""
+# volumeMounts: |
+#   - name: mittens
+#     mountPath: "/etc/messagebox/mittens"
+#     readOnly: true
+volumes: ""
+# volumes: |
+#   - name: mittens
+#     secret:
+#       secretName: messagebox-mittens-ssl
+# Apache
+apache:
+  run:
+    user: "www-data"
+    group: "www-data"
+serviceAccount:
+  # Specifies whether a service account should be created
+  enabled: false
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+serviceMonitor:
+  enabled: false
+  interval: 15s
+ingress:
+  enabled: false
+  annotations: {}
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  path: /*
+  hosts: []
+  #    - public-api.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+livenessProbe: {}
+#livenessProbe:
+  # httpGet:
+  #   path: /
+  #   port: http
+  # initialDelaySeconds: 5
+  # periodSeconds: 10
+  # timeoutSeconds: 1
+  # failureThreshold: 3
+  # successThreshold: 1
+readinessProbe: {}
+# readinessProbe:
+#   httpGet:
+#     path: /
+#     port: http
+#   initialDelaySeconds: 10
+#   periodSeconds: 30
+#   timeoutSeconds: 5
+#   failureThreshold: 3
+#   successThreshold: 1
+resources:
+  limits:
+  requests:
+    cpu: 1m
+    memory: 16Mi
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}

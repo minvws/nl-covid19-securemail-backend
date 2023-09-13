@@ -1,0 +1,25 @@
+.modal-content {
+    .modal-header {
+        border-bottom: 0;
+        padding: 1.5rem 1.5rem 0;
+
+        .modal-title {
+            font-size: 1.5rem;
+        }
+
+        .close {
+            margin-top: -1.5rem;
+            font-weight: normal;
+        }
+    }
+
+    .modal-body {
+        padding: 1rem 1.5rem;
+    }
+
+    .modal-footer {
+        align-items: normal;
+        flex-direction: column;
+        padding: 0 1.5rem 1.5rem;
+    }
+}

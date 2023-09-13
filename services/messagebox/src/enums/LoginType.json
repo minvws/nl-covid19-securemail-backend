@@ -1,0 +1,15 @@
+{
+    "phpClass": "LoginType",
+    "tsConst": "loginType",
+    "description": "Login type",
+    "items": [
+        {
+            "label": "DigiD",
+            "value": "digid"
+        },
+        {
+            "label": "Sms",
+            "value": "sms"
+        }
+    ]
+}

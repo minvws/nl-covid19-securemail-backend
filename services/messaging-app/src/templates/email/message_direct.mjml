@@ -1,0 +1,31 @@
+<mjml owa="desktop" lang="nl">
+  <mj-head>
+    <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <mj-attributes>
+      <mj-all font-family="Roboto" color="#1E1E1E" />
+      <mj-text font-size="16px" line-height="24px" />
+    </mj-attributes>
+    
+    <mj-style inline="inline">
+      .body {
+      	border-top: 4px solid #001E49;
+      }
+      .code {
+      	background: white;
+        width:auto;
+      	border: 1px solid #E6E6EF;
+      	border-radius: 4px;
+        display: inline-block;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body css-class="body">
+    <mj-wrapper>
+      <mj-section>
+        <mj-column>
+          <mj-text>{{ text|raw }}</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

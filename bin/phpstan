@@ -1,0 +1,35 @@
+#!/bin/bash
+BASE_PATH=$(dirname $0)/..
+DOCKER_COMPOSE="$(dirname $0)/docker-compose-dev"
+
+CONTAINER=$1
+PHPSTAN_ARGS="${@:2}"
+
+if [ ! "$(docker ps -q -f name=messagebox)" ]; then
+    echo "=====[ START CONTAINERS ]====="
+    $DOCKER_COMPOSE up -d --remove-orphans
+fi
+
+if [ -z "$CONTAINER" ] || [ "$CONTAINER" == "bridge" ]; then
+    echo
+    echo "===[ RUN PHPSTAN FOR BRIDGE ]==="
+    $DOCKER_COMPOSE run --rm --entrypoint php bridge vendor/bin/phpstan
+fi
+
+if [ -z "$CONTAINER" ] || [ "$CONTAINER" == "messaging-api" ]; then
+    echo
+    echo "===[ RUN PHPSTAN FOR MESSAGING-API ]==="
+    $DOCKER_COMPOSE run --rm --entrypoint php messaging-api vendor/bin/phpstan
+fi
+
+if [ -z "$CONTAINER" ] || [ "$CONTAINER" == "messaging-app" ]; then
+    echo
+    echo "===[ RUN PHPSTAN FOR MESSAGING-APP ]==="
+    $DOCKER_COMPOSE run --rm --entrypoint php messaging-app vendor/bin/phpstan
+fi
+
+if [ -z "$CONTAINER" ] || [ "$CONTAINER" == "messagebox" ]; then
+    echo
+    echo "===[ RUN PHPSTAN FOR MESSAGEBOX ]==="
+    $DOCKER_COMPOSE run --rm --entrypoint php messagebox vendor/bin/phpstan
+fi

@@ -1,0 +1,35 @@
+.list-group {
+    .list-group-item {
+        padding: $list-group-item-padding-y 1rem $list-group-item-padding-y 0.75rem;
+        border: none;
+        border-bottom: 1px solid $list-group-border-color;
+
+        .title {
+            font-family: $font-family-base;
+            font-weight: normal;
+        }
+
+        small.date {
+            color: $secondary-hover;
+        }
+
+        &.unread {
+            font-weight: bold;
+
+            .title {
+                font-family: $headings-font-family;
+                font-weight: bold;
+            }
+
+            svg {
+                margin-top: 6px;
+            }
+        }
+
+        &.active {
+            small.date {
+                color: $list-group-active-color;
+            }
+        }
+    }
+}

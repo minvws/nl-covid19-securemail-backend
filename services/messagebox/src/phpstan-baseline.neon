@@ -1,0 +1,587 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: /shared/library/SecureMail/Application/Exceptions/AppException.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function str_starts_with expects string, mixed given\\.$#"
+			count: 2
+			path: /shared/library/SecureMail/Application/Helpers/EncryptionHelper.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function base64_decode expects string, mixed given\\.$#"
+			count: 2
+			path: /shared/library/SecureMail/Application/Helpers/EncryptionHelper.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
+			count: 2
+			path: /shared/library/SecureMail/Application/Helpers/EncryptionHelper.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$data\\.$#"
+			count: 3
+			path: /shared/library/SecureMail/Application/Repositories/Mittens/MittensPseudoBsnRepository.php
+
+		-
+			message: "#^Cannot call method runningInConsole\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Helpers/AuditUserHelper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: app/Helpers/AuditUserHelper.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of static method MinVWS\\\\Audit\\\\Models\\\\AuditUser\\:\\:create\\(\\) expects string, mixed given\\.$#"
+			count: 3
+			path: app/Helpers/AuditUserHelper.php
+
+		-
+			message: "#^Parameter \\#2 \\$identifier of static method MinVWS\\\\Audit\\\\Models\\\\AuditUser\\:\\:create\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Helpers/AuditUserHelper.php
+
+		-
+			message: "#^Call to an undefined method Jose\\\\Easy\\\\AbstractLoader\\:\\:run\\(\\)\\.$#"
+			count: 1
+			path: app/Helpers/MaxDigidTokenValidator.php
+
+		-
+			message: "#^Cannot call method getJwks\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Helpers/MaxDigidTokenValidator.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(mixed\\)\\: mixed\\)\\|null, Closure\\(App\\\\Models\\\\MessagePreview\\)\\: MinVWS\\\\Audit\\\\Models\\\\AuditObject given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/MessageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:sortByDesc\\(\\) expects array\\<array\\{string, string\\}\\|\\(callable\\(mixed, \\(int\\|string\\)\\)\\: mixed\\)\\|string\\>\\|\\(callable\\(mixed, \\(int\\|string\\)\\)\\: mixed\\)\\|string, Closure\\(App\\\\Models\\\\MessagePreview\\)\\: float\\|int\\|string given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/MessageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$content of class Symfony\\\\Component\\\\HttpFoundation\\\\Response constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Web/AttachmentController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Web/AttachmentController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function base64_decode expects string, mixed given\\.$#"
+			count: 2
+			path: app/Http/Controllers/Web/PairingCodeController.php
+
+		-
+			message: "#^Parameter \\#1 \\$uuid of method App\\\\Services\\\\PairingCodeService\\:\\:getByUuid\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Web/PairingCodeController.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Carbon\\\\CarbonImmutable\\:\\:addSeconds\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: app/Http/Middleware/SessionHeaders.php
+
+		-
+			message: "#^Property Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\\:\\:\\$proxies \\(array\\|string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: app/Http/Middleware/TrustProxies.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\Auth\\\\MaxDigidLoginRequest\\:\\:getCode\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: app/Http/Requests/Auth/MaxDigidLoginRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\Auth\\\\MaxDigidLoginRequest\\:\\:getState\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: app/Http/Requests/Auth/MaxDigidLoginRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\PostOtpCodeRequest\\:\\:getPostLoginType\\(\\) should return App\\\\Models\\\\Enums\\\\LoginType but returns App\\\\Models\\\\Enums\\\\LoginType\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/PostOtpCodeRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\PostOtpCodeRequest\\:\\:getPostOtpCode\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/PostOtpCodeRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\PostPairingCodeRenewRequest\\:\\:getPostPairingCodeUuid\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/PostPairingCodeRenewRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\PostPairingCodeRequest\\:\\:getPostEmailAddress\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/PostPairingCodeRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\PostPairingCodeRequest\\:\\:getPostPairingCode\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/PostPairingCodeRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\RequestOtpCodeRequest\\:\\:getPostLoginType\\(\\) should return App\\\\Models\\\\Enums\\\\LoginType but returns App\\\\Models\\\\Enums\\\\LoginType\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/RequestOtpCodeRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\UnlinkByUuidRequest\\:\\:getPostMessageUuid\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/UnlinkByUuidRequest.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Requests\\\\UnlinkByUuidRequest\\:\\:getPostReason\\(\\) should return string but returns array\\|string\\|null\\.$#"
+			count: 1
+			path: app/Http/Requests/UnlinkByUuidRequest.php
+
+		-
+			message: "#^Return type \\(void\\) of method App\\\\Models\\\\User\\:\\:getAuthPassword\\(\\) should be compatible with return type \\(string\\) of method Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable\\:\\:getAuthPassword\\(\\)$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Return type \\(void\\) of method App\\\\Models\\\\User\\:\\:getRememberToken\\(\\) should be compatible with return type \\(string\\) of method Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable\\:\\:getRememberToken\\(\\)$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Return type \\(void\\) of method App\\\\Models\\\\User\\:\\:getRememberTokenName\\(\\) should be compatible with return type \\(string\\) of method Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable\\:\\:getRememberTokenName\\(\\)$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Class App\\\\Providers\\\\Auth\\\\MaxDigidClient extends @final class GuzzleHttp\\\\Client\\.$#"
+			count: 1
+			path: app/Providers/Auth/MaxDigidClient.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Illuminate\\\\Filesystem\\\\FilesystemManager\\:\\:disk\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: app/Providers/FilesystemServiceProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$service of method MinVWS\\\\Audit\\\\AuditService\\:\\:setService\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: app/Providers/MiscServiceProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of static method MinVWS\\\\Audit\\\\Models\\\\AuditUser\\:\\:create\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Providers/MiscServiceProvider.php
+
+		-
+			message: "#^Anonymous function should return Predis\\\\Client but returns mixed\\.$#"
+			count: 1
+			path: app/Providers/RepositoryServiceProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$config of class GuzzleHttp\\\\Client constructor expects array, mixed given\\.$#"
+			count: 1
+			path: app/Providers/RepositoryServiceProvider.php
+
+		-
+			message: "#^Parameter \\#2 \\$accessToken of class SecureMail\\\\Shared\\\\Application\\\\Repositories\\\\Mittens\\\\MittensPseudoBsnRepository constructor expects string, mixed given\\.$#"
+			count: 1
+			path: app/Providers/RepositoryServiceProvider.php
+
+		-
+			message: "#^Parameter \\#3 \\$logger of class SecureMail\\\\Shared\\\\Application\\\\Repositories\\\\Mittens\\\\MittensPseudoBsnRepository constructor expects Psr\\\\Log\\\\LoggerInterface, mixed given\\.$#"
+			count: 1
+			path: app/Providers/RepositoryServiceProvider.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$mime_type\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$aliasUuid\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$attachments\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$attachmentsEncryptionKey\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$createdAt\\.$#"
+			count: 2
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$expiresAt\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$footer\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$fromName\\.$#"
+			count: 2
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$hasAttachments\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$hasIdentity\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$identityRequired\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$isRead\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$mime_type\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$phoneNumber\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$subject\\.$#"
+			count: 2
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$text\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$toName\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 4
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$items of class Illuminate\\\\Support\\\\Collection constructor expects Illuminate\\\\Contracts\\\\Support\\\\Arrayable\\<TKey of \\(int\\|string\\), TValue\\>\\|iterable\\<TKey of \\(int\\|string\\), TValue\\>\\|null, object given\\.$#"
+			count: 2
+			path: app/Repositories/Bridge/BridgeMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$phoneNumber\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$type\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 2
+			path: app/Repositories/Bridge/BridgeOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$validUntil\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeOtpCodeRepository.php
+
+		-
+			message: "#^Parameter \\#2 \\$loginType of class App\\\\Models\\\\OtpCode constructor expects App\\\\Models\\\\Enums\\\\LoginType, App\\\\Models\\\\Enums\\\\LoginType\\|null given\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$emailAddress\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$messageUuid\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$toName\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$validUntil\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgePairingCodeRepository.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\Bridge\\\\Client\\\\Client\\:\\:isHealty\\(\\)\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeRepository.php
+
+		-
+			message: "#^Cannot call method getData\\(\\) on MinVWS\\\\Bridge\\\\Client\\\\Response\\|null\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeRepository.php
+
+		-
+			message: "#^Method App\\\\Repositories\\\\Bridge\\\\BridgeRepository\\:\\:convertDate\\(\\) should return Carbon\\\\CarbonImmutable but returns Carbon\\\\CarbonImmutable\\|false\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of method MinVWS\\\\Bridge\\\\Client\\\\Request\\:\\:setData\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Carbon\\\\CarbonImmutable\\:\\:addSeconds\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeRepository.php
+
+		-
+			message: "#^Parameter \\#2 \\$key of static method Firebase\\\\JWT\\\\JWT\\:\\:encode\\(\\) expects OpenSSLAsymmetricKey\\|OpenSSLCertificate\\|resource\\|string, mixed given\\.$#"
+			count: 1
+			path: app/Repositories/Bridge/BridgeRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, \\(int\\|string\\)\\)\\: array, Closure\\(App\\\\Models\\\\Attachment\\)\\: array given\\.$#"
+			count: 1
+			path: app/Resources/MessageResource.php
+
+		-
+			message: "#^Method App\\\\Services\\\\AuthenticationService\\:\\:getPairingCode\\(\\) should return App\\\\Models\\\\PairingCode\\|null but returns mixed\\.$#"
+			count: 1
+			path: app/Services/AuthenticationService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\MaxConfigurationService\\:\\:getJwks\\(\\) should return array but returns mixed\\.$#"
+			count: 1
+			path: app/Services/MaxConfigurationService.php
+
+		-
+			message: "#^Method App\\\\Services\\\\MaxConfigurationService\\:\\:getOidcConfiguration\\(\\) should return array but returns mixed\\.$#"
+			count: 1
+			path: app/Services/MaxConfigurationService.php
+
+		-
+			message: "#^Cannot access property \\$id_token on mixed\\.$#"
+			count: 1
+			path: app/Services/MaxDigidAuthService.php
+
+		-
+			message: "#^Parameter \\#4 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: app/Services/MaxDigidAuthService.php
+
+		-
+			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: config/cache.php
+
+		-
+			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: config/database.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 11
+			path: config/database.php
+
+		-
+			message: "#^Parameter \\#1 \\$hostname of function gethostbynamel expects string, mixed given\\.$#"
+			count: 2
+			path: config/database.php
+
+		-
+			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: config/session.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$items\\.$#"
+			count: 3
+			path: enums/generate.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$phpClass\\.$#"
+			count: 3
+			path: enums/generate.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$tsConst\\.$#"
+			count: 3
+			path: enums/generate.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$value\\.$#"
+			count: 1
+			path: enums/generate.php
+
+		-
+			message: "#^Cannot access property \\$items on mixed\\.$#"
+			count: 1
+			path: enums/generate.php
+
+		-
+			message: "#^Cannot access property \\$scope on mixed\\.$#"
+			count: 1
+			path: enums/generate.php
+
+		-
+			message: "#^Function loadSchema\\(\\) should return object but returns mixed\\.$#"
+			count: 1
+			path: enums/generate.php
+
+		-
+			message: "#^Parameter \\#1 \\$schema of function addPhpTypeToSchemaProperties expects object, mixed given\\.$#"
+			count: 1
+			path: enums/generate.php
+
+		-
+			message: "#^Parameter \\#2 \\$schema of function safeNames expects object, mixed given\\.$#"
+			count: 1
+			path: enums/generate.php
+
+		-
+			message: "#^Cannot call method send\\(\\) on mixed\\.$#"
+			count: 1
+			path: public/index.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function urldecode expects string, string\\|false\\|null given\\.$#"
+			count: 1
+			path: server.php
+
+		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 2
+			path: tests/Feature/Api/MessageControllerTest.php
+
+		-
+			message: "#^Cannot access offset 1 on mixed\\.$#"
+			count: 2
+			path: tests/Feature/Api/MessageControllerTest.php
+
+		-
+			message: "#^Cannot access property \\$uuid on mixed\\.$#"
+			count: 4
+			path: tests/Feature/Api/MessageControllerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, \\(int\\|string\\)\\)\\: stdClass, Closure\\(App\\\\Models\\\\Attachment\\)\\: stdClass given\\.$#"
+			count: 1
+			path: tests/Feature/Api/MessageControllerTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
+			count: 3
+			path: tests/Feature/Api/MessageControllerTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$loginType of class App\\\\Models\\\\OtpCode constructor expects App\\\\Models\\\\Enums\\\\LoginType, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/ControllerTestCase.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of class Illuminate\\\\Encryption\\\\Encrypter constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: tests/Feature/Web/AttachmentControllerTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
+			count: 5
+			path: tests/Feature/Web/Auth/MaxDigidControllerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$message of function sodium_crypto_box expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/Feature/Web/PairingCodeControllerTest.php
+
+		-
+			message: "#^Cannot access property \\$uuid on mixed\\.$#"
+			count: 2
+			path: tests/Unit/Repositories/Bridge/BridgeMessageRepositoryTest.php
+
+		-
+			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
+			count: 3
+			path: tests/Unit/Repositories/Bridge/BridgeMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of class MinVWS\\\\Bridge\\\\Client\\\\Response constructor expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/Unit/Repositories/Bridge/BridgeMessageRepositoryTest.php
+
+		-
+			message: "#^Using nullsafe method call on non\\-nullable type DateTime\\. Use \\-\\> instead\\.$#"
+			count: 1
+			path: tests/Unit/Repositories/Bridge/BridgeMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of class MinVWS\\\\Bridge\\\\Client\\\\Response constructor expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/Unit/Repositories/Bridge/BridgeOtpCodeRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$loginType of method App\\\\Repositories\\\\Bridge\\\\BridgeOtpCodeRepository\\:\\:requestByTypeAndMessageUuid\\(\\) expects App\\\\Models\\\\Enums\\\\LoginType, mixed given\\.$#"
+			count: 2
+			path: tests/Unit/Repositories/Bridge/BridgeOtpCodeRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: tests/Unit/Repositories/Mittens/MittensPseudoBsnRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$body of class GuzzleHttp\\\\Psr7\\\\Response constructor expects Psr\\\\Http\\\\Message\\\\StreamInterface\\|resource\\|string\\|null, string\\|false given\\.$#"
+			count: 6
+			path: tests/Unit/Repositories/Mittens/MittensPseudoBsnRepositoryTest.php
+

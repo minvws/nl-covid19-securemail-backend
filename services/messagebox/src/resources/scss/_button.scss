@@ -1,0 +1,233 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+
+    &:active {
+        color: inherit;
+    }
+
+    &.btn-primary {
+        @include button-variant($primary, $primary, $primary-hover, $primary-hover);
+
+        svg {
+            fill: color-yiq($primary);
+        }
+
+        &:focus {
+            @include gradient-bg($primary);
+            border-color: white;
+
+            @if $enable-shadows {
+                @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: 0 0 0 $btn-focus-width $primary;
+            }
+        }
+
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            background-color: $primary-hover;
+            border-color: white;
+
+            @if $enable-shadows {
+                @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary-hover);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: 0 0 0 $btn-focus-width $primary-hover;
+            }
+
+            &:focus {
+                @if $enable-shadows {
+                    @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary-hover);
+                } @else {
+                    // Avoid using mixin so we can pass custom focus shadow properly
+                    box-shadow: 0 0 0 $btn-focus-width $primary-hover;
+                }
+            }
+        }
+    }
+
+    &.btn-secondary {
+        @include button-variant(transparent, $secondary, transparent, $secondary-hover);
+        color: $body-color;
+
+        svg {
+            fill: $body-color;
+        }
+
+        @include hover() {
+            color: $body-color;
+        }
+
+        &:focus {
+            color: $body-color;
+            outline: 1px solid white;
+            outline-offset: 0;
+
+            @if $enable-shadows {
+                @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width+1 $primary);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: 0 0 0 $btn-focus-width+1 $primary;
+            }
+        }
+
+        &.selected {
+            color: $primary;
+            border-color: $primary;
+            border-width: 2px;
+
+            svg {
+                fill: $primary;
+            }
+
+            &:focus {
+                color: $primary;
+            }
+        }
+
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            color: $primary;
+        }
+    }
+
+    &.btn-tertiary {
+        background: transparent;
+        color: $primary;
+        font-weight: bold;
+
+        @include hover() {
+            color: $primary-hover;
+            background-color: $gray;
+        }
+
+        &:focus {
+            color: $primary-hover;
+            outline: 1px solid white;
+            border-radius: $border-radius;
+            background-color: transparent;
+
+            @if $enable-shadows {
+                @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: 0 0 0 $btn-focus-width $primary;
+            }
+        }
+
+        &.selected {
+            color: $primary;
+            border-color: $primary;
+            border-width: 2px;
+
+            svg {
+                fill: $primary;
+            }
+
+            &:focus {
+                color: $primary;
+            }
+        }
+    }
+
+    &.btn-link {
+        @include button-variant(transparent, transparent, rgba(#000000, 5%), transparent);
+        color: $primary;
+        font-weight: $btn-font-weight;
+
+        &--light {
+            font-weight: normal;
+            opacity: 1;
+        }
+
+        svg {
+            fill: $primary;
+        }
+
+        @include hover() {
+            color: $primary;
+            text-decoration: none;
+        }
+
+        &:focus {
+            position: relative;
+            color: $primary;
+            @include gradient-bg(transparent);
+            text-decoration: none;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: calc(100% + 2px);
+                height: calc(100% + 2px);
+                left: -1px;
+                top: -1px;
+                background: transparent;
+                border: 1px solid white;
+                border-radius: $border-radius;
+                z-index: 1;
+            }
+
+            @if $enable-shadows {
+                @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: 0 0 0 $btn-focus-width $primary;
+            }
+        }
+
+        &.disabled,
+        &:disabled {
+            color: $body-color;
+        }
+
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active {
+            position: relative;
+            color: $primary;
+            @include gradient-bg(rgba(#000000, 5%));
+            text-decoration: none;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: calc(100% + 2px);
+                height: calc(100% + 2px);
+                left: -1px;
+                top: -1px;
+                background: transparent;
+                border: 1px solid white;
+                border-radius: $border-radius;
+                z-index: 1;
+            }
+
+            @if $enable-shadows {
+                @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: 0 0 0 $btn-focus-width $primary;
+            }
+
+            &:focus {
+                @if $enable-shadows {
+                    @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $primary);
+                } @else {
+                    // Avoid using mixin so we can pass custom focus shadow properly
+                    box-shadow: 0 0 0 $btn-focus-width $primary;
+                }
+            }
+        }
+    }
+
+    &.btn-trash {
+        @extend .btn-secondary;
+
+        @include hover() {
+            background-color: $gray;
+        }
+    }
+}
