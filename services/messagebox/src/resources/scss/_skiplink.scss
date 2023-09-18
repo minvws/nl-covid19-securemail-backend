@@ -1,0 +1,40 @@
+.skiplink {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 1200px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    font-size: 1rem;
+    line-height: 1.5;
+    width: auto;
+    min-height: 44px;
+    padding: 0.75rem 3rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    color: $white;
+    background-color: $primary-hover;
+    border-color: white;
+    box-shadow: 0 0 0 $btn-focus-width $primary-hover;
+    position: absolute;
+    top: -100vh;
+    text-decoration: none;
+    border-radius: $border-radius;
+    border: 1px solid $white;
+
+    &:hover {
+        color: $white;
+        text-decoration: none;
+    }
+
+    &:focus {
+        top: 0.5rem;
+        z-index: 1010;
+        outline-offset: 0;
+        text-decoration: none;
+    }
+}

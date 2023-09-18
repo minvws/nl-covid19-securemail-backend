@@ -1,0 +1,31 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+        beStrictAboutChangesToGlobalState="true"
+        beStrictAboutOutputDuringTests="true"
+        colors="true"
+        bootstrap="tests/bootstrap.php"
+        cacheResultFile="var/phpunit.cache"
+        executionOrder="random"
+>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+        <report>
+            <html outputDirectory="./var/codeCoverage" highLowerBound="80"/>
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="JWT_MAX_LIFETIME" value="60" force="true"/>
+        <env name="LOG_CHANNEL" value="null" force="true"/>
+        <env name="REDIS_LIST_MESSAGE_DELETE" value="message_delete" force="true"/>
+        <env name="REDIS_LIST_MESSAGE_SAVE" value="message_save" force="true"/>
+        <env name="MESSAGING_API_JWT_SECRETS" value="platform-identifier:jwt-secret" force="true"/>
+    </php>
+</phpunit>

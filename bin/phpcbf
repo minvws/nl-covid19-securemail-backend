@@ -1,0 +1,22 @@
+#!/bin/bash
+BASE_PATH=$(dirname $0)/..
+DOCKER_COMPOSE="$(dirname $0)/docker-compose-dev"
+
+echo
+echo "===[ RUN PHPCBF ]==="
+
+echo
+echo "===[ RUN PHPCBF FOR BRIDGE ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php bridge vendor/bin/phpcbf
+
+echo
+echo "===[ RUN PHPCBF FOR MESSAGING-API ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php messaging-api vendor/bin/phpcbf
+
+echo
+echo "===[ RUN PHPCBF FOR MESSAGING-APP ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php messaging-app vendor/bin/phpcbf
+
+echo
+echo "===[ RUN PHPCBF FOR MESSAGEBOX ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php messagebox vendor/bin/phpcbf

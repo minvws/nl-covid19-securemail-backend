@@ -1,0 +1,151 @@
+/**********************************
+ * Fonts
+**********************************/
+$font-family-base: 'RijksoverheidSansText', sans-serif;
+$font-size-base: 1rem;
+
+$headings-color: #1e1e1e;
+$headings-font-family: 'RijksoverheidSansHeading', sans-serif;
+$headings-font-weight: bold;
+$h1-font-size: 1.5rem;
+$h2-font-size: 1rem;
+$h3-font-size: 1rem;
+
+$h1-font-size-mobile: 1.25rem;
+$h2-font-size-mobile: 1rem;
+$h3-font-size-mobile: 1rem;
+
+/**********************************
+ * Colors
+**********************************/
+$primary: #5616ff;
+$secondary: #94949b;
+$dark: #001e49;
+
+$primary-hover: #4812d6;
+$secondary-hover: #757581;
+
+$navbar-dark-color: #ffffff;
+$navbar-dark-hover-color: rgba(#ffffff, 0.5);
+$navbar-padding-x: 0;
+$navbar-padding-y: 0;
+
+$link: #2962ff;
+$link-hover: #193b99;
+$link-visited: #6c59b1;
+
+$red: #ec0045;
+$white: #ffffff;
+$gray: #f2f2f7;
+$gray-blue: #f7f3ff;
+$gray-dark: #70707b;
+$light-grey: #e6e6ef;
+$lightest-grey: #f8f8fb;
+$yellow: #fff6e8;
+
+$digid-orange: #e17000;
+
+$text-muted: #7B7B87;
+
+$theme-colors: (
+    'lightest-grey': $lightest-grey,
+);
+
+/**********************************
+ * Body
+**********************************/
+$body-bg: #f2f2f7;
+$body-color: #333333;
+
+/**********************************
+ * Inputs
+**********************************/
+$input-color: $body-color;
+$input-padding-y: 0.75rem;
+$input-line-height: 1.5;
+$input-border-width: 1px;
+$input-border-color: $secondary;
+$input-focus-border-color: $primary;
+$input-placeholder-color: $gray-dark;
+$input-focus-box-shadow: 0px 0px 6px rgba($primary, 25%), 0px 1px 2px rgba(0, 0, 0, 0.03);
+$input-transition: none;
+
+/**********************************
+ * Buttons
+**********************************/
+$input-btn-line-height: 1.75;
+$input-btn-padding-x: 1rem;
+$input-btn-padding-y: 0.75rem;
+
+$btn-focus-width: 2px;
+$btn-font-weight: bold;
+
+$input-btn-padding-x-lg: 1rem;
+$input-btn-padding-y-lg: 1.125rem;
+$input-btn-font-size-lg: 1rem;
+
+$input-btn-focus-width: 3px;
+$input-btn-focus-box-shadow: inherit;
+
+/**********************************
+ * Cards
+**********************************/
+$card-border-width: 0;
+$card-spacer-x: 2rem;
+$card-spacer-y: 2rem;
+
+/**********************************
+ * Dropdowns
+**********************************/
+$dropdown-border-color: $secondary;
+$dropdown-link-hover-bg: $gray;
+$dropdown-item-padding-y: 0.875rem;
+$dropdown-item-padding-x: 1rem;
+$dropdown-link-active-bg: $gray;
+$dropdown-link-active-color: $body-color;
+$dropdown-link-color: $body-color;
+$dropdown-min-width: 211px;
+$dropdown-padding-y: 0;
+$dropdown-spacer: 0;
+
+/**********************************
+ * Radius
+**********************************/
+$border-radius: 4px;
+$border-radius-lg: $border-radius;
+$border-radius-sm: $border-radius;
+
+/**********************************
+ * Breakpoints
+**********************************/
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+/**********************************
+ * Dimensions
+**********************************/
+$navbar-height: 48px;
+$message-width-desktop: 690px;
+
+/**********************************
+ * Modals
+**********************************/
+$modal-content-border-width: 0;
+$modal-footer-border-width: 0;
+
+/**********************************
+ * List groups
+**********************************/
+$list-group-color: $headings-color;
+$list-group-border-width: 0;
+$list-group-border-radius: 0;
+$list-group-border-color: $light-grey;
+
+$list-group-item-padding-y: 1rem;
+
+$list-group-hover-bg: $gray;
+$list-group-active-color: $headings-color;
+$list-group-active-bg: $gray;
+$list-group-active-border-color: $light-grey;

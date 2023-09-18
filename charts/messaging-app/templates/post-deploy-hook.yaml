@@ -1,0 +1,49 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "app.fullname" . }}-run-migrations
+  labels:
+    {{- include "app.labels" . | nindent 4 }}
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  template:
+    metadata:
+      name: {{ template "app.fullname" . }}-run-migrations
+      labels:
+        {{- include "app.labels" . | nindent 8 }}
+    spec:
+      restartPolicy: Never
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets }}
+      {{- end }}
+      containers:
+      - name: {{ template "app.fullname" . }}-run-migrations
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["php"]
+        args: ["vendor/bin/phinx", "migrate"]
+        envFrom:
+        - configMapRef:
+            name: {{ template "app.fullname" . }}
+        - secretRef:
+            name: {{ template "app.fullname" . }}
+            optional: true
+        {{- with .Values.volumeMounts }}
+        volumeMounts:
+        {{- tpl . $ | nindent 12 }}
+        {{- end }}
+    {{- with .Values.securityContext }}
+      securityContext:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.volumes }}
+      volumes:
+      {{- tpl . $ | nindent 8 }}
+    {{- end }}

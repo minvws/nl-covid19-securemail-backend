@@ -1,0 +1,13 @@
+parameters:
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    level: max
+    paths:
+        - .
+    excludePaths:
+        - logs/
+        - node_modules/
+        - var/
+        - vendor/
+includes:
+	- phpstan-baseline.neon

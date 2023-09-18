@@ -1,0 +1,42 @@
+#!/bin/bash
+
+VERSION=$1
+
+if [[ -z $VERSION ]]; then
+  echo "VERSION not specified using argument"
+  exit 1
+fi
+
+if [[ -z $HELM_REPO ]]; then
+  echo "HELM_REPO not set in the environment"
+  exit 1
+fi
+
+if [[ -z $HELM_USERNAME ]]; then
+  echo "HELM_USERNAME not set in the environment"
+  exit 1
+fi
+
+if [[ -z $HELM_PASSWORD ]]; then
+  echo "HELM_PASSWORD not set in the environment"
+  exit 1
+fi
+
+mkdir -p build
+
+echo "Update Helm Charts to $VERSION"
+
+CHARTS=$(find ./charts/* -type d -maxdepth 0)
+for c in $CHARTS
+do
+  docker run --rm -i -v "${PWD}":/workdir  mikefarah/yq:4.9.6 e ".version = \"$VERSION\" | .appVersion = \"$VERSION\"" -i $c/Chart.yaml
+  docker run --rm -i -v "${PWD}":/workdir  mikefarah/yq:4.9.6 e ".image.tag = \"$VERSION\"" -i $c/values.yaml
+  helm package $c -d build/
+done
+
+PACKAGES=$(find ./build -type f -name '*.tgz' -exec basename {} \;)
+for p in $PACKAGES
+do
+  echo "Push Helm Chart $p to $HELM_REPO"
+  curl -u$HELM_USERNAME:$HELM_PASSWORD -T build/$p "$HELM_REPO/$p"
+done

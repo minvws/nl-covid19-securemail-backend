@@ -1,0 +1,27 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method addConsoleHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: bootstrap/dependencies.php
+
+		-
+			message: "#^Cannot call method addFileHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: bootstrap/dependencies.php
+
+		-
+			message: "#^Cannot call method addNullHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: bootstrap/dependencies.php
+
+		-
+			message: "#^Cannot call method createInstance\\(\\) on mixed\\.$#"
+			count: 1
+			path: bootstrap/dependencies.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 4
+			path: bootstrap/dependencies.php
+

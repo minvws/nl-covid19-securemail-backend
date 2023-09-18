@@ -1,0 +1,22 @@
+#!/bin/bash
+BASE_PATH=$(dirname $0)/..
+DOCKER_COMPOSE="$(dirname $0)/docker-compose-dev"
+
+echo
+echo "===[ RUN PHPCS ]==="
+
+echo
+echo "===[ RUN PHPCS FOR BRIDGE ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php bridge vendor/bin/phpcs
+
+echo
+echo "===[ RUN PHPCS FOR MESSAGING-API ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php messaging-api vendor/bin/phpcs
+
+echo
+echo "===[ RUN PHPCS FOR MESSAGING-APP ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php messaging-app vendor/bin/phpcs
+
+echo
+echo "===[ RUN PHPCS FOR MESSAGEBOX ]==="
+$DOCKER_COMPOSE run --rm --entrypoint php messagebox vendor/bin/phpcs

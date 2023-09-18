@@ -1,0 +1,17 @@
+includes:
+    - phpstan-baseline.neon
+parameters:
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
+    level: max
+    paths:
+        - .
+        - ../shared/library
+    excludePaths:
+        - app/Models/Enums/Enum.php
+        - bootstra/cache
+        - node_modules/
+        - public/css
+        - public/js
+        - storage/
+        - vendor/

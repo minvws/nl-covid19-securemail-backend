@@ -1,0 +1,62 @@
+## compile mail template
+FROM node:16.2.0 as compiled
+
+WORKDIR /src
+
+COPY messaging-app/src/package.json messaging-app/src/package-lock.json /src/
+COPY messaging-app/src /src
+RUN npm install
+RUN npm run compile-email
+
+
+## build backend
+FROM php:8.1.2-cli as backend
+
+# Install packages and extensions
+RUN apt-get -qq update && \
+    apt-get -y install curl git wget vim unzip libzip-dev libpq-dev libicu-dev apt-transport-https ca-certificates gnupg \
+                       openssl opensc libengine-pkcs11-openssl apt-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install opcache pdo mysqli pdo_mysql
+
+# Install composer globally for increased performance
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    composer self-update
+
+COPY shared/repositories /shared/repositories
+COPY messaging-app/src /src
+COPY shared/library /shared/library
+RUN cd /src && composer install
+
+## Build image
+FROM php:8.1.2-cli
+
+# Install packages and extensions
+RUN apt-get -qq update && \
+    apt-get -y install curl git wget vim unzip libzip-dev libpq-dev libicu-dev apt-transport-https ca-certificates gnupg \
+                       openssl opensc libengine-pkcs11-openssl apt-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install opcache pdo mysqli pdo_mysql
+
+COPY --from=backend /src /src
+COPY --from=backend /shared /shared
+COPY --from=compiled /src/templates/email/compiled /src/templates/email/compiled
+
+RUN usermod -u 1000 www-data && \
+    chgrp -R www-data /src/var/cache && \
+    chmod -R ug+rwx /src/var/cache
+
+# Environment
+ENV PATH $PATH:/root/.composer/vendor/bin
+
+# Logs should go to stdout / stderr
+RUN set -ex \
+    && ln -sf /proc/1/fd/1 "/var/log/cron.log" \
+    && ln -sf /proc/1/fd/1 "/var/log/syslog" \
+    && chown -R --no-dereference "www-data:www-data" /src/var/cache
+
+WORKDIR /src
+
+CMD ["/src/console"]

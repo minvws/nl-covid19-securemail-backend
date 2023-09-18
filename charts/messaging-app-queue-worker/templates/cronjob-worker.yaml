@@ -1,0 +1,69 @@
+{{- if semverCompare "<1.21-0" $.Capabilities.KubeVersion.Version }}
+apiVersion: batch/v1beta1
+{{- else }}
+apiVersion: batch/v1
+{{- end }}
+kind: CronJob
+metadata:
+  name: {{ template "app.fullname" $ }}
+  labels:
+    app.kubernetes.io/name: {{ include "app.fullname" $ }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+spec:
+  schedule: {{ .Values.schedule }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  jobTemplate:
+    spec:
+      backoffLimit: {{ .Values.backoffLimit }}
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: {{ include "app.fullname" $ }}
+        spec:
+          {{- if $.Values.serviceAccount.enabled }}
+          serviceAccountName: {{ template "app.serviceAccountName" $ }}
+          {{- end }}
+          {{- if $.Values.imagePullSecrets }}
+          imagePullSecrets:
+            - name: {{ $.Values.imagePullSecrets }}
+          {{- end }}
+          containers:
+            - name: {{ $.Chart.Name }}
+              image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+              imagePullPolicy: {{ $.Values.image.pullPolicy }}
+              command: ["/src/console"]
+              args: ["queue:work"]
+              envFrom:
+              - configMapRef:
+                  name: {{ template "app.fullname" $ }}
+              - secretRef:
+                  name: {{ template "app.fullname" $ }}
+                  optional: true
+              resources:
+{{ toYaml $.Values.resources | indent 16 }}
+              {{- with .Values.volumeMounts }}
+              volumeMounts:
+              {{- tpl . $ | nindent 16 }}
+              {{- end }}
+          restartPolicy: {{ .Values.restartPolicy }}
+        {{- with $.Values.securityContext }}
+          securityContext:
+{{ toYaml . | indent 12 }}
+        {{- end }}
+        {{- with $.Values.nodeSelector }}
+          nodeSelector:
+{{ toYaml . | indent 12 }}
+        {{- end }}
+        {{- with $.Values.affinity }}
+          affinity:
+{{ toYaml . | indent 12 }}
+        {{- end }}
+        {{- with $.Values.tolerations }}
+          tolerations:
+{{ toYaml . | indent 12 }}
+        {{- end }}
+        {{- with .Values.volumes }}
+          volumes:
+          {{- tpl . $ | nindent 12 }}
+        {{- end }}

@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+    hsm-setup:
+        image: ghcr.io/minvws/nl-covid19-dbco-app-hsm-private/hsm-simulator-setup:latest
+        command: /setup-hsm
+        environment:
+            SIM_HOST: hsm
+            SIM_PORT: 3001
+            SO_PIN: ${HSM_SO_PIN:-123456}
+            USER_PIN: ${HSM_USER_PIN:-654321}
+        networks:
+            - hsm-simulator
+

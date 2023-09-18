@@ -1,0 +1,7 @@
+#!/bin/bash
+BASE_PATH=$(dirname $0)/..
+DOCKER_COMPOSE="$(dirname $0)/docker-compose-dev"
+
+$DOCKER_COMPOSE down --remove-orphans -v
+
+$BASE_PATH/bin/setup-dev

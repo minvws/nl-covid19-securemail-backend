@@ -1,0 +1,9 @@
+apiVersion: v1
+version: 0.0.0
+appVersion: 0.0.0
+name: messagebox
+engine: gotpl
+description: Messagebox Helm chart for Kubernetes
+home: https://github.com/minvws/nl-covid19-securemail-backend-private
+sources:
+  - https://github.com/minvws/nl-covid19-securemail-backend-private
