@@ -1,0 +1,11 @@
+{
+    "phpClass": "OTPType",
+    "tsConst": "OTPType",
+    "description": "OTP type",
+    "items": [
+        {
+            "label": "Sms",
+            "value": "sms"
+        }
+    ]
+}

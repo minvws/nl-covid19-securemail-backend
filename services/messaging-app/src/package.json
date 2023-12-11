@@ -1,0 +1,13 @@
+{
+  "name": "securemail",
+  "version": "1.0.0",
+  "license": "EUPL/1.2",
+  "description": "securemail",
+  "dependencies": {},
+  "devDependencies": {
+    "mjml": "^4.8.1"
+  },
+  "scripts": {
+    "compile-email": "./node_modules/.bin/mjml templates/email/*.mjml -o templates/email/compiled/"
+  }
+}

@@ -1,0 +1,5 @@
+version: '3.7'
+
+volumes:
+    mysql-data:
+        driver: local

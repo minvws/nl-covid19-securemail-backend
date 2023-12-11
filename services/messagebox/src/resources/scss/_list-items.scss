@@ -1,0 +1,8 @@
+.list-item {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+
+    &:not(.col-md-6):last-child {
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,54 @@
+<mjml owa="desktop" lang="nl">
+    <mj-head>
+        <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto"/>
+        <mj-attributes>
+            <mj-all font-family="Roboto" color="#1E1E1E"/>
+          	<mj-section padding="0" />
+            <mj-text font-size="16px" line-height="24px" padding="16px" />
+        </mj-attributes>
+        <mj-preview>Er staat een beveiligd bericht voor u klaar in de berichtenbox van MijnGGDContact.</mj-preview>
+        <mj-style inline="inline">
+            .shy {
+                text-decoration:none;
+                color:#1E1E1E;
+            }
+        </mj-style>
+    </mj-head>
+    <mj-body css-class="body">
+        <mj-wrapper background-color="#FFFFFF">
+            <mj-section>
+                <mj-column>
+                    <mj-text>Beste {{ name }},</mj-text>
+                  	<mj-text>Er staat een beveiligd bericht voor u klaar in de berichtenbox van MijnGGDContact.</mj-text> 
+                </mj-column>
+            </mj-section>
+ 
+            <mj-section padding="8px 16px">
+                <mj-column>
+                    <mj-button background-color="#5616FF" border-radius="4px" color="#FFFFFF" font-size="16px" font-weight="500" href="{{ messagebox_url|raw }}" line-height="28px" padding="0" align="left">Bericht openen</mj-button>
+                </mj-column>
+            </mj-section>
+          
+            <mj-raw>{% if pairing_code %}</mj-raw>           
+                <mj-section>
+                    <mj-column>
+                        <mj-text>Lukt het openen niet? Ga dan naar <a class="shy" href="{{ messagebox_url|raw }}">mijn.ggdcontact.nl</a> en gebruik deze eenmalige code om het bericht te openen: <b>{{ pairing_code|upper }}</b>.</mj-text>
+                    </mj-column>
+                </mj-section>
+            <mj-raw>{% endif %}</mj-raw>
+          
+            <mj-section>
+                <mj-column>
+           	        <mj-text>Met vriendelijke groet,</mj-text>
+                    <mj-text><b>{{ footer|raw }}</b></mj-text>
+                </mj-column>
+            </mj-section>
+
+            <mj-section padding-top="32px">
+                <mj-column background-color="#F8F8FB">
+                    <mj-text color="#626268" font-size="14px">Deze e-mail bevat vertrouwelijke informatie. Bent u niet de geadresseerde en ontvangt u de e-mail per ongeluk? Geef dit dan alstublieft aan ons door. Ook willen we u vragen de e-mail te verwijderen en de inhoud niet te bekijken of te delen.</mj-text>
+                </mj-column>
+            </mj-section>
+        </mj-wrapper>
+    </mj-body>
+</mjml>

@@ -1,0 +1,152 @@
+version: '3.7'
+
+services:
+    # private
+    messaging-app:
+        ports:
+            - ${MESSAGING_APP_PORT:-8081}:8080
+        volumes:
+            - ./services/shared/repositories:/shared/repositories
+            - ./services/messaging-app/src:/src
+            - ./services/shared/library:/shared/library:cached
+
+    private-mysql:
+        ports:
+            - ${PRIVATE_MYSQL_PORT:-3306}:3306
+
+    smtp:
+        image: mailhog/mailhog
+        ports:
+            - ${MAILHOG_PORT-8025}:8025
+        networks:
+            - private
+
+    messaging-app-console:
+        volumes:
+            - ./services/messaging-app/src:/src
+            - ./services/shared/library:/shared/library:cached
+
+    messaging-app-queue-worker:
+        volumes:
+            - ./services/shared/repositories:/shared/repositories
+            - ./services/messaging-app/src:/src
+            - ./services/shared/library:/shared/library:cached
+
+    # healthauthority
+    messaging-api:
+        ports:
+            - ${MESSAGING_API_PORT:-8082}:8080
+        volumes:
+            - ./services/shared/repositories:/shared/repositories
+            - ./services/messaging-api/src:/src
+            - ./services/shared/library:/shared/library:cached
+
+    # public
+    messagebox:
+        build:
+            args:
+                - INSTALL_DEV_TOOLS=1
+                - INSTALL_XDEBUG=1
+        environment:
+            APP_DEBUG: ${MESSAGEBOX_APP_DEBUG:-true}
+            PSEUDO_BSN_SERVICE: ${PSEUDO_BSN_SERVICE:-local}
+            MESSAGEBOX_HMR_HOST: ${MESSAGEBOX_HMR_HOST:-localhost}
+            MESSAGEBOX_HMR_PORT: ${MESSAGEBOX_HMR_PORT:-9200}
+            XDEBUG_CLIENT_HOST: ${XDEBUG_CLIENT_HOST:-localhost}
+            XDEBUG_MODE: ${XDEBUG_MODE:-debug}
+        ports:
+            - ${MESSAGEBOX_PORT:-8083}:8080
+            - ${MESSAGEBOX_PORT_SSL:-8084}:8443
+            - ${MESSAGEBOX_HMR_PORT:-9200}:9000
+        volumes:
+            - ./services/shared/repositories:/shared/repositories
+            - ./services/shared/library:/shared/library:cached
+            - ./services/messagebox/src:/src
+
+    # bridge
+    bridge:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-attachment-by-uuid:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-messages:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-messages-authentication-properties:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-messages-by-uuid:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-messages-link:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-messages-incorrect-phone:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-messages-unlink:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-get-otp-code:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-request-otp-code:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-pairing-code:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-pairing-code-by-uuid:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+    bridge-pairing-code-renew:
+        volumes:
+            - ./services/bridge/src:/src
+            - ./services/shared/repositories:/shared/repositories
+
+    # hsm
+    hsm-manager:
+        command: php /src/console security:manage-keys -p -s
+        volumes:
+            - ./services/shared/repositories:/shared/repositories
+            - ./services/messaging-app/src:/src
+            - ./services/messaging-app/assets/cs_pkcs11_R2.cfg:/etc/utimaco/cs_pkcs11_R2.cfg
+            - ./services/messaging-app/assets/libcs_pkcs11_R3.so:/etc/utimaco/libcs_pkcs11_R3.so
+
+    # Attachments storage
+    minio-s3-storage:
+        image: minio/minio
+        ports:
+            - '${S3_ATTACHMENTS_API_PORT:-9090}:9000'
+            - '${S3_ATTACHMENTS_CONSOLE_PORT:-9091}:9001'
+        environment:
+            MINIO_ACCESS_KEY: ${S3_ATTACHMENTS_ACCESS_KEY}
+            MINIO_SECRET_KEY: ${S3_ATTACHMENTS_SECRET_KEY}
+        volumes:
+            - ./attachment-data:/data:rw
+        command: server /attachment/data --address ":9000" --console-address ":9001"
+
+    create-attachment-bucket:
+        image: minio/mc
+        depends_on:
+            - minio-s3-storage
+        entrypoint: >
+            /bin/sh -c "
+            /usr/bin/mc alias set s3-local http://minio-s3-storage:9000 ${S3_ATTACHMENTS_ACCESS_KEY} ${S3_ATTACHMENTS_SECRET_KEY};
+            /usr/bin/mc mb s3-local/${S3_ATTACHMENTS_BUCKET:-attachments};
+            /usr/bin/mc policy set private s3-local/${S3_ATTACHMENTS_BUCKET:-attachments};
+            exit 0;
+            "

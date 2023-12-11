@@ -1,0 +1,71 @@
+{
+    "phpClass": "Error",
+    "tsConst": "error",
+    "description": "Error",
+    "items": [
+        {
+            "label": "MESSAGE_EXPIRED",
+            "value": "message_expired"
+        },
+        {
+            "label": "MESSAGE_NOT_FOUND",
+            "value": "message_not_found"
+        },
+        {
+            "label": "MESSAGE_REVOKED",
+            "value": "message_revoked"
+        },
+        {
+            "label": "MESSAGE_USER_NOT_AUTHORIZED",
+            "value": "message_user_not_authorized"
+        },
+        {
+            "label": "OTP_INFO_RETRIEVAL_FAILED",
+            "value": "otp_info_retrieval_failed"
+        },
+        {
+            "label": "OTP_REPORT_PHONE_NUMBER_FAILED",
+            "value": "otp_report_phone_number_failed"
+        },
+        {
+            "label": "OTP_REQUEST_FAILED",
+            "value": "otp_request_failed"
+        },
+        {
+            "label": "OTP_VERIFICATION_FAILED",
+            "value": "otp_verification_failed"
+        },
+        {
+            "label": "PAIRING_CODE_INVALID",
+            "value": "pairing_code_invalid"
+        },
+        {
+            "label": "PAIRING_CODE_EXPIRED",
+            "value": "pairing_code_expired"
+        },
+        {
+            "label": "DIGID_CANCELED",
+            "value": "digid_canceled"
+        },
+        {
+            "label": "DIGID_SERVICE_UNAVAILABLE",
+            "value": "digid_service_unavailable"
+        },
+        {
+            "label": "DIGID_AUTH_ERROR",
+            "value": "digid_auth_error"
+        },
+        {
+            "label": "ATTACHMENT_NOT_AVAILABLE",
+            "value": "attachment_not_available"
+        },
+        {
+            "label": "UNAUTHENTICATED",
+            "value": "unauthenticated"
+        },
+        {
+            "label": "UNKNOWN",
+            "value": "unknown"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+        beStrictAboutChangesToGlobalState="true"
+        beStrictAboutOutputDuringTests="true"
+        colors="true"
+        bootstrap="tests/bootstrap.php"
+        cacheResultFile="var/phpunit.cache"
+        executionOrder="random"
+>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+        <report>
+            <html outputDirectory="./var/codeCoverage" highLowerBound="80"/>
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="Feature">
+            <directory>./tests/Feature</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory>./tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="JWT_MAX_LIFETIME" value="60" force="true"/>
+        <env name="MAIL_DEFAULT_FROM_ADDRESS" value="foo@bar.com" force="true"/>
+        <env name="LOG_CHANNEL" value="null" force="true"/>
+        <env name="PAIRING_CODE_LIFETIME_IN_HOURS" value="24" force="true"/>
+        <env name="REDIS_LIST_MESSAGE_DELETE" value="message_delete"/>
+        <env name="REDIS_LIST_MESSAGE_SAVE" value="message_save"/>
+        <env name="SMS_PROVIDER" value="local" force="true"/>
+        <ini name="memory_limit" value="-1"/>
+    </php>
+</phpunit>

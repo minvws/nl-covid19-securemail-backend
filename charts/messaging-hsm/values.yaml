@@ -1,0 +1,100 @@
+# Default values for ha hsm
+
+image:
+  repository: ghcr.io/minvws/nl-covid19-securemail-backend-private/messaging-app
+  tag: 0.0.0
+  pullPolicy: IfNotPresent
+imagePullSecrets:
+console:
+  args: ["security:manage-keys"]
+# Environment variables that will be passed into the container
+# env:
+  # DEBUG: "0"
+  # REDIS_HOST: messaging-hsm-redis
+  # REDIS_PORT: "6379"
+  # SECURITY_MODULE_NONCE_USE_PHP_RANDOM_BYTES: "1"
+  # SECURITY_MODULE_TYPE: hsm
+env: {}
+# Environment variables secrets that will be passed into the container.
+# When set. This will generate a Secret with the name `app.fullname`.
+# When not set. You can create a secret yourself with the name `app.fullname`.
+# envSecrets:
+  # SECURITY_MODULE_USER_PIN:
+envSecrets: {}
+persistence:
+  enabled: false
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+  annotations: {}
+  # selector:
+  #   matchLabels:
+  #     app.kubernetes.io/name: messaging-hsm
+  # existingClaim:
+  storageClassName: redundant
+serviceAccount:
+  # Specifies whether a service account should be created
+  enabled: false
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+livenessProbe: {}
+resources:
+  limits:
+  requests:
+    cpu: 1m
+    memory: 16Mi
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+terminationGracePeriodSeconds: 60
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}
+
+# Redis
+redis:
+  enabled: true
+  config: |
+    save ""
+    appendonly no
+  useSecret: false # if enabled, config will be used using a Secret. secretName must be messaging-hsm-redis
+  stategyType: RollingUpdate
+  image:
+    repository: redis
+    tag: 6
+    pullPolicy: IfNotPresent
+  livenessProbe:
+    tcpSocket:
+      port: redis
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 10
+    failureThreshold: 3
+    successThreshold: 1
+  readinessProbe:
+    exec:
+      command:
+        - sh
+        - -c
+        - redis-cli -h $(hostname) ping
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+    successThreshold: 1
+  resources:
+    limits:
+      memory: 128Mi
+    requests:
+      memory: 64Mi
+      cpu: 1m
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+  lifecycle: {}
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}

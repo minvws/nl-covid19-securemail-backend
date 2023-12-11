@@ -1,0 +1,81 @@
+# Default values for messenger-app
+
+replicaCount: 1
+image:
+  repository: ghcr.io/minvws/nl-covid19-securemail-backend-private/messaging-app-console
+  tag: 0.0.0
+  pullPolicy: IfNotPresent
+imagePullSecrets:
+# metrics-server add-on required
+hpa:
+  enabled: false
+  maxReplicas: 10
+  # average total CPU usage per pod (1-100)
+  cpu:
+  # average memory usage per pod (100Mi-1Gi)
+  memory:
+  # average http requests per second per pod (k8s-prometheus-adapter)
+  requests:
+# Environment variables that will be passed into the container
+# env:
+  # APP_ENV: production
+  # DEBUG: "false"
+  # LOG_CHANNEL: "stderr"
+  # LOG_LEVEL: "debug"
+  # MAIL_DEFAULT_FROM_ADDRESS: "user@example.com"
+  # MYSQL_DATABASE: securemail
+  # MYSQL_HOST: mysql
+  # PAIRING_CODE_LIFETIME_IN_HOURS: "48"
+  # REDIS_HOST: redis-securemail-private-test
+  # REDIS_PORT: "26379"
+  # REDIS_LIST_MAIL: "mail"
+  # REDIS_LIST_MESSAGE_DELETE: "message_delete"
+  # REDIS_LIST_MESSAGE_SAVE: "message_save"
+  # REDIS_LIST_NOTIFICATION: "notification"
+  # REDIS_SENTINEL_SERVICE: mymaster
+  # SMTP_HOST: mailserver
+  # SMTP_PORT: "25"
+env: {}
+# Environment variables secrets that will be passed into the container.
+# When set. This will generate a Secret with the name `app.fullname`.
+# When not set. You can create a secret yourself with the name `app.fullname`.
+# envSecrets:
+  # MESSAGEBOX_JWT_SECRET: changeme
+  # MYSQL_PASSWORD: changeme
+  # MYSQL_USERNAME: changeme
+  # SMTP_USER: changeme
+  # SMTP_PASS: changeme
+# Configure volumes for mounting files (e.g. using ConfigMap, Secret) in your containers
+schedule: "0/1 * * * *"
+successfulJobsHistoryLimit: 3
+restartPolicy: Never
+backoffLimit: 0
+concurrencyPolicy: Forbid
+volumeMounts: ""
+volumes: ""
+# Apache
+apache:
+  run:
+    user: "www-data"
+    group: "www-data"
+serviceAccount:
+  # Specifies whether a service account should be created
+  enabled: false
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+livenessProbe: {}
+readinessProbe: {}
+resources:
+  limits:
+  requests:
+    cpu: 1m
+    memory: 16Mi
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}

@@ -1,0 +1,17 @@
+#!/bin/bash
+BASE_PATH=$(dirname $0)/..
+DOCKER_COMPOSE="$(dirname $0)/docker-compose-dev"
+
+. $BASE_PATH/.env
+
+echo
+echo "=====[ RESET HSM ]====="
+
+if [ "${SECURITY_MODULE_TYPE:-hsm}" == "hsm" ]; then
+  $DOCKER_COMPOSE -f docker-compose.setup.yml run --rm hsm-setup
+else
+  rm $BASE_PATH/keys/*.key
+fi
+
+$DOCKER_COMPOSE restart hsm
+echo

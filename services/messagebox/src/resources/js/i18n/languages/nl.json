@@ -1,0 +1,387 @@
+{
+    "app": {
+        "title": "{title} - Veilig berichten ontvangen",
+        "version": "Versie: {version}",
+        "locales": {
+            "en": "English",
+            "nl": "Nederlands"
+        }
+    },
+    "components": {
+        "backButton": {
+            "previous": "Vorige"
+        },
+        "baseModal": {
+            "cancel": "Annuleren",
+            "ok": "Ok"
+        },
+        "digidLoginButton": {
+            "text": "Inloggen met DigiD"
+        },
+        "footer": {
+            "navLabel": "Over deze site",
+            "privacy": "Privacy",
+            "accessibility": "Toegankelijkheid",
+            "reportVulnerability": "Kwetsbaarheid melden",
+            "about": "Deze website is een initiatief van het Ministerie van VWS, RIVM en GGD GHOR"
+        },
+        "languageSwitch": {
+            "language": "Taal",
+            "switchLanguage": "Wissel van taal"
+        },
+        "navbar": {
+            "logo": "Logo GGD Contact, ga naar de homepage",
+            "title": "MijnGGDContact Inbox",
+            "skiplink": "Ga direct naar inhoud",
+            "logout": "Uitloggen",
+            "logoutModal": {
+                "title": "Wil je uitloggen?",
+                "buttonOk": "Ja, uitloggen",
+                "buttonCancel": "Nee, blijf ingelogd"
+            }
+        },
+        "sessionModal": {
+            "session": {
+                "title": "Je sessie is bijna verlopen",
+                "description": "Je bent al bijna {lifetime} minuten niet actief. Over {minutes}:{seconds} minuten word je automatisch uitgelogd. Klik op 'Verlengen' om ingelogd te blijven.",
+                "button": "Verlengen"
+            },
+            "logout": {
+                "title": "Je bent uitgelogd",
+                "description": "Je was meer dan {lifetime} minuten niet actief. Daarom ben je automatisch uitgelogd.",
+                "button": "Opnieuw beginnen"
+            },
+            "connectivity": {
+                "title": "Verbindingsprobleem",
+                "description": "Het lukt op dit moment niet om je sessie te verlengen. Controleer je internetverbinding en probeer het opnieuw.",
+                "button": "Opnieuw proberen"
+            }
+        },
+        "message": {
+            "expiresAt": "Beschikbaar tot {datetime}",
+            "receivedAt": "Ontvangen op {datetime}",
+            "printButton": "Printen",
+            "downloadButton": "Downloaden",
+            "attachments": "Bijlage(n)",
+            "error": {
+                "title": "Je kan dit bericht nu niet bekijken",
+                "paragraphs": [
+                    "Je bent niet (meer) ingelogd als de ontvanger van dit bericht. Om dit bericht te kunnen lezen moet je opnieuw inloggen."
+                ],
+                "button": "Opnieuw inloggen"
+            }
+        },
+        "emptyInboxMessage": {
+            "title": "Je inbox is nog leeg",
+            "paragraphs": [
+                "Heb je een e-mail gekregen van de GGD? <br /> Gebruik de eenmalige code uit deze e-mail om je bericht op te zoeken."
+            ],
+            "button": "Bericht opzoeken"
+        }
+    },
+    "icons": {
+        "basic": "",
+        "info": "",
+        "error": "Let op: "
+    },
+    "errors": {
+        "message_expired": {
+            "title": "Bericht is verlopen",
+            "message": "Je kunt het bericht daarom niet meer openen."
+        },
+        "message_revoked": {
+            "title": "Bericht is ingetrokken",
+            "message": "Je kunt het bericht daarom niet meer openen."
+        },
+        "message_user_not_authorized": {
+            "title": "Je bent ingelogd met de verkeerde DigiD",
+            "message": "Dit bericht is bedoeld voor {name}. Log in met de DigiD van {name} om het bericht te openen.",
+            "button": "Uitloggen en opnieuw proberen"
+        },
+        "otp_info_retrieval_failed": {
+            "title": "Er gaat iets mis",
+            "message": "Er gaat iets mis bij het ophalen van de informatie. Probeer het later nog eens."
+        },
+        "otp_report_phone_number_failed": {
+            "title": "Er gaat iets mis",
+            "message": "Er gaat iets mis bij het doorgeven. Probeer het nog eens."
+        },
+        "otp_request_failed": {
+            "title": "Er is een storing",
+            "message": "De code kan daarom nu niet verstuurd worden. Probeer het later nog eens."
+        },
+        "otp_verification_failed": {
+            "title": "Deze sms-code klopt niet",
+            "message": "Controleer of je de goede code hebt ingevuld. Probeer het nog eens."
+        },
+        "pairing_code_invalid": {
+            "title": "Deze eenmalige code klopt niet",
+            "message": "De GGD heeft de eenmalige code naar je gemaild. Controleer of je de goede code hebt ingevuld."
+        },
+        "pairing_code_expired": {
+            "title": "Vraag opnieuw toegang aan",
+            "message": "Om veiligheidsredenen zijn de link en code uit de e-mail 48 uur geldig. Ontvang een nieuwe link en code op: <b>{emailAddress}</b>, zodat je alsnog je bericht kunt openen.",
+            "button": "Stuur mij een nieuwe link en code",
+            "confirmation": "Link en code zijn verstuurd. Ga naar je e-mail om verder te gaan. "
+        },
+        "digid_canceled": {
+            "title": "",
+            "message": "Je hebt het inloggen bij DigiD geannuleerd"
+        },
+        "digid_service_unavailable": {
+            "title": "",
+            "message": "Er is een fout opgetreden in de communicatie met DigiD. Probeert u het later nogmaals. Indien deze fout blijft aanhouden, kijk dan op de website <a href=\"https://www.digid.nl\">https://www.digid.nl</a> voor de laatste informatie."
+        },
+        "digid_auth_error": {
+            "title": "",
+            "message": "Er is een fout opgetreden in de communicatie met DigiD. Probeert u het later nogmaals. Indien deze fout blijft aanhouden, kijk dan op de website <a href=\"https://www.digid.nl\">https://www.digid.nl</a> voor de laatste informatie."
+        },
+        "unknown": {
+            "title": "Er gaat iets mis",
+            "message": "Er is een onbekende fout opgetreden, waardoor je niet verder kan. Probeer het later opnieuw."
+        }
+    },
+    "options": {
+        "OTPType": {
+            "OPTION_sms": "sms-code"
+        }
+    },
+    "pages": {
+        "accessibilityStatementPage": {
+            "pageTitle": "Toegankelijkheid",
+            "title": "Toegankelijkheid",
+            "introParagraphs": [
+                "Het ministerie van Volksgezondheid, Welzijn en Sport wil dat iedereen deze website kan gebruiken. Er gelden daarom functioneel-technische en redactionele <a href=\"https://www.digitoegankelijk.nl/\">toegankelijkheidseisen</a> voor websites van de overheid. Deze zijn vastgelegd in de <a href=\"https://www.forumstandaardisatie.nl/open-standaarden/digitoegankelijk-en-301-549-met-wcag-21\">toegankelijkheidsstandaard Digitoegankelijk EN 301 549</a>.",
+                "<a href=\"https://www.toegankelijkheidsverklaring.nl/register/7052\">Toegankelijkheidsverklaring mijn.ggdcontact.nl</a>"
+            ],
+            "sections": [
+                {
+                    "heading": "Garanderen toegankelijkheid",
+                    "listIntro": "In onze dagelijkse processen houden we altijd rekening met de toegankelijkheid:",
+                    "listItems": [
+                        "Ontwerp: in alle stappen van het maken van de website (ontwerp, bouw, redactie) houden we rekening met toegankelijkheid.",
+                        "Onderzoek: onafhankelijke deskundigen toetsen regelmatig (onderdelen van) de website op toegankelijkheid. Zij kijken zowel naar functioneel-technische onderdelen als redactionele aspecten. Knelpunten worden duurzaam opgelost.",
+                        "Kennis medewerkers: onze medewerkers houden hun kennis over toegankelijkheid op peil en passen die toe waar nodig."
+                    ]
+                },
+                {
+                    "heading": "Problemen met toegankelijkheid melden",
+                    "listIntro": "Kom je toch een pagina tegen die niet toegankelijk is? Dan kun je dit aan ons melden:",
+                    "listItems": [
+                        "E-mail: <a href=\"mailto:toegankelijkheid@ggdcontact.nl\">toegankelijkheid@ggdcontact.nl</a>",
+                        "Telefoon: <a href=\"tel:08009129\">0800-9129</a> (gratis, elke dag bereikbaar van 8:00-20:00)"
+                    ]
+                }
+            ]
+        },
+        "errorPage": {
+            "pageTitle": "Foutmelding",
+            "goBack": "Ga terug"
+        },
+        "homePage": {
+            "pageTitle": "Inloggen MijnGGDContact",
+            "title": "Inloggen MijnGGDContact",
+            "paragraphs": [
+                "Mogelijk staat er een beveiligd bericht voor je klaar in de berichtenbox van MijnGGDContact. Kies zelf hoe je wilt inloggen."
+            ],
+            "tokenButton": "Inloggen met de eenmalige code uit de e-mail"
+        },
+        "inboxPage": {
+            "pageTitle": "MijnGGDContact Inbox",
+            "messagesListTitle": "Berichtenlijst",
+            "loading": "Bezig met laden",
+            "unread": "Ongelezen:",
+            "hasAttachment": "met bijlage(n)",
+            "noMessages": "Geen nieuwe berichten",
+            "newMessageLink": "Verwacht je een nieuw bericht dat er nog niet staat?"
+        },
+        "loginPage": {
+            "pageTitle": "Inloggen MijnGGDContact",
+            "title": "Bericht voor {name}",
+            "paragraphs": [
+                "Er staat een beveiligd bericht voor je klaar in de berichtenbox van MijnGGDContact. Kies zelf hoe je wilt inloggen."
+            ],
+            "buttons": {
+                "sms": "Inloggen met een sms-code"
+            }
+        },
+        "privacyStatementPage": {
+            "pageTitle": "Privacyverklaring MijnGGDContact",
+            "title": "Privacyverklaring MijnGGDContact",
+            "introParagraphs": [],
+            "sections": [
+                {
+                    "paragraphs": [
+                        "Laatste wijzigingen: 28 april 2022. Als het nodig is, passen we deze privacyverklaring aan. Dat doen we bijvoorbeeld als we iets veranderen aan MijnGGDContact dat te maken heeft met de bescherming van uw persoonlijke gegevens.",
+                        "Deze privacyverklaring gaat over de verwerking van persoonsgegevens in het kader van het landelijk bron- en contactonderzoek (BCO) naar de verspreiding van het coronavirus. Dit onderzoek wordt door de Gemeentelijke Gezondheidsdiensten (GGD’en) uitgevoerd. Deze privacyverklaring gaat specifiek over de gegevens die met het gebruik van MijnGGDContact worden verwerkt. Via MijnGGDContact kunt u berichten lezen die naar u worden gestuurd in het kader van het BCO.",
+                        "In Nederland zijn er 25 regionale GGD’en. Welke uw regionale GGD is, hangt af van waar u woont. Kijk op de website <a href=\"https://www.ggd.nl/\">www.ggd.nl</a> voor uw regionale GGD. Onder aan deze verklaring staat ook een lijst met alle GGD’en in Nederland. Elke GGD is zelfstandig verantwoordelijk voor de gegevensverwerking via MijnGGDContact.",
+                        "Deze privacyverklaring gaat alleen over wat we met uw gegevens doen als u gebruik maakt van MijnGGDContact. Deze verklaring gaat niet over wat de regionale GGD’en daarna doen met uw gegevens in hun interne systemen. Die informatie staat in de privacyverklaring van uw regionale GGD."
+                    ]
+                },
+                {
+                    "heading": "MijnGGDContact",
+                    "paragraphs": [
+                        "MijnGGDContact is een website waarop u kunt inloggen om berichten te lezen en in te zien die u in het kader van BCO heeft ontvangen. Als een BCO-medewerker een bericht naar u verstuurt, ontvangt u eerst een aankondigingsmail dat er een bericht klaar staat in MijnGGDContact. Vervolgens kunt u na inloggen op MijnGGDContact het bericht lezen. U kunt twee soorten berichten ontvangen, namelijk (i) een bericht bedoeld voor uzelf; of (ii) een bericht bedoeld om door te sturen aan uw contact van wie de contactgegevens niet bekend zijn bij de BCO-medewerker.",
+                        "MijnGGDContact wordt ingezet om op een veilige manier berichten te sturen in het kader van het BCO. Wij vinden het belangrijk dat berichten die worden verstuurd ook gelezen worden door de juiste persoon. We willen weten of de persoon die het bericht gaat lezen ook de persoon is die het moet ontvangen. Daarom vindt inloggen op MijnGGDContact plaats via DigiD of met een sms-code in combinatie met uw e-mailadres. Het inloggen via een sms-code vindt plaats wanneer uw BSN niet bekend is bij de GGD of u geen DigiD heeft.",
+                        "U ontvangt een e-mail met daarin een aankondiging dat er voor u een bericht klaar staat. In de e-mail staat een code (ook wel token genoemd). Gaat u zelf naar de website van MijnGGDContact en wilt u daar inloggen, dan heeft u de code nodig om het bericht dat voor u bedoeld is te openen. Klikt u op de link in de e-mail, dan kunt u direct op het bericht inloggen en hoeft u de code niet te gebruiken."
+                    ]
+                },
+                {
+                    "heading": "Persoonsgegevens",
+                    "listIntro": "De persoonsgegevens die verwerkt worden voor het versturen van berichten via MijnGGDContact zijn hetzelfde als de persoonsgegevens die verwerkt worden in het reguliere BCO-proces. Om een bericht te versturen gebruiken we dus gegevens die al bekend zijn bij de GGD. Specifiek voor het versturen van berichten verwerken we de volgende gegevens van u:",
+                    "listItems": ["Voor- en achternaam;", "E-mailadres;", "Telefoonnummer."],
+                    "listOutro": "Indien u inlogt met DigiD, wordt ook uw BSN verwerkt. Het gebruik van het BSN voor het inloggen met DigiD is nodig om op een veilige manier in te loggen op MijnGGDContact. Uw hele BSN is nodig om controleren of het bericht wordt geopend door de juiste persoon. Daarna is het hele BSN niet meer nodig. Daarom wordt het in het systeem omgezet naar een ander gegeven, voordat het wordt opgeslagen in het BCO-systeem. Alleen de laatste drie cijfers van uw BSN zijn zichtbaar in uw BCO-dossier. Zo’n gegeven noemen wij een pseudoniem: we kunnen hierdoor wel dossiers uit elkaar houden en met u in gesprek controleren of de medewerker het juiste dossier voor zicht heeft. Degene die in uw dossier kan kijken ziet niet uw volledige BSN, omdat hij dit niet nodig heeft."
+                },
+                {
+                    "heading": "Categorieën van betrokkenen",
+                    "paragraphs": [
+                        "<dl><dt class='mb-2'>‘Berichtontvanger’</dt><dd>U kunt een bericht ontvangen via MijnGGDContact als u zelf contact heeft gehad met een BCO-medewerker in het kader van een coronabesmetting, maar ook als u in contact bent geweest met iemand die (mogelijk) besmet is met corona. Dit bericht kunt u direct van de GGD ontvangen, of dit bericht kan aan u doorgestuurd zijn als de GGD uw contactgegevens niet heeft.</dd></dl>"
+                    ]
+                },
+                {
+                    "heading": "Doel",
+                    "paragraphs": [
+                        "MijnGGDContact is ontwikkeld, om het bericht dat u ontvangt in het kader van BCO af te schermen wegens de medische gegevens die dit bericht bevat. Zo blijkt er bijvoorbeeld uit het bericht dat u (mogelijk) met corona besmet bent. Het inbouwen van deze functionaliteit voorkomt dat er handmatig informatie tussen de verschillende systemen uit wordt gewisseld en dat er op een efficiënte en veilige manier berichten aan u worden verstuurd binnen het BCO-proces."
+                    ]
+                },
+                {
+                    "heading": "Rechtsgrond",
+                    "paragraphs": [
+                        "Volgens de AVG mogen we uw persoonsgegevens alleen verwerken als we daar een geldige reden voor hebben. De regionale GGD’en gebruiken uw gegevens voor bron- en contactonderzoek. Hiermee vervult de GGD de taak van algemeen belang die aan haar is opgedragen. Dit staat in de Wet publieke gezondheid."
+                    ],
+                    "listIntro": "Deze verwerking is noodzakelijk om redenen van algemeen belang op het gebied van de volksgezondheid. De volgende wetten zijn hierbij van toepassing:",
+                    "listItems": [
+                        "Algemene verordening gegevensbescherming artikel 6 lid 1 sub e.",
+                        "Algemene verordening gegevensbescherming artikel 9 lid 2 sub i.",
+                        "Wet publieke gezondheid artikel 6 lid 1 sub c."
+                    ]
+                },
+                {
+                    "heading": "Ontvangers",
+                    "listIntro": "Bij de uitvoering van het BCO-onderzoek ontvangen de volgende partijen gegevens:",
+                    "listItems": [
+                        "De hostingpartij van de datasluis en het BCO-portaal (dit is het portaal waar vanuit de BCO-medewerker berichten aan u verstuurt) verwerkt uw gegevens. Alleen bij technische noodzaak kan de hostingpartij bij uw gegevens en de omgeving waar deze staan. Maar de hostingpartij kan deze gegevens niet inzien omdat de gegevens versleuteld zijn.",
+                        "Indien u niet inlogt met DigiD, maar met de combinatie van uw e-mailadres en telefoonnummer, ontvangt u een sms ter verificatie. Voor het versturen van deze sms berichten wordt gebruik gemaakt van een leverancier. De sms berichten bevatten geen medische informatie (bijvoorbeeld het woord ‘corona’) en de sms berichten worden niet opgeslagen (ook niet door de leverancier)."
+                    ]
+                },
+                {
+                    "heading": "Bewaartermijn",
+                    "paragraphs": [
+                        "De bewaartermijn voor berichten ontvangen via MijnGGDContact is vastgesteld op 30 dagen. Deze bewaartermijn moet ingaan na het versturen van ieder bericht, ook indien het bericht wordt doorgestuurd. Dus in het geval van het doorsturen van een bericht geldt dat de termijn van 30 dagen opnieuw ingaat. Een bericht kan slechts eenmaal worden doorgestuurd en de maximale bewaartermijn voor doorgestuurde berichten is vastgesteld op 59 dagen."
+                    ]
+                },
+                {
+                    "heading": "Uw rechten",
+                    "paragraphs": [
+                        "U hebt het recht uw GGD te verzoeken om inzage van en rectificatie of wissing van de persoonsgegevens of beperking van de verwerking, alsmede het recht tegen de verwerking bezwaar te maken. De GGD zal niet altijd aan uw verzoeken kunnen voldoen, omdat de GGD een wettelijke taak heeft tot bron- en contactopsporing. Eenmaal verstuurde gegevens kunt u niet meer zelf terughalen. Uw GGD zal een verzoek alleen toewijzen als dat de bron- en contactopsporing niet belemmert.",
+                        "MijnGGDContact maakt geen gebruik van geautomatiseerde besluitvorming of profilering."
+                    ]
+                },
+                {
+                    "heading": "Klachten",
+                    "paragraphs": [
+                        "Hebt u vragen of een klacht over MijnGGDContact? Stuur dan een mailtje naar uw regionale GGD. Onder aan dit bericht staan de mailadressen van alle diens Functionaris Gegevensbescherming.",
+                        "U hebt ook altijd het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens: <a href=\"https://www.autoriteitpersoonsgegevens.nl\">www.autoriteitpersoonsgegevens.nl</a>. "
+                    ]
+                },
+                {
+                    "heading": "Contactgegevens",
+                    "listIntro": "In Nederland zijn er 25 regionale GGD’en. Welke uw regionale GGD is, hangt af van waar u woont. Kijk op de website <a href=\"https://www.ggd.nl\">www.ggd.nl</a> voor uw regionale GGD. Hieronder staat ook een lijst met alle GGD’en in Nederland.",
+                    "listItems": [
+                        "<strong>Dienst Gezondheid & Jeugd Zuid-Holland Zuid</strong>: Karel Lotsyweg 40, 3318 AL Dordrecht, <a href=\"https://www.dienstgezondheidjeugd.nl\">www.dienstgezondheidjeugd.nl</a>, (078) 770 85 00, Functionaris Gegevensbescherming: <a href=\"mailto:fg@ggdzhz.nl\">fg@ggdzhz.nl</a>",
+                        "<strong>GGD Amsterdam</strong>: Nieuwe Achtergracht 100, 1018 WT Amsterdam, <a href=\"https://www.ggd.amsterdam.nl\">www.ggd.amsterdam.nl</a>, (020) 555 5202, Functionaris Gegevensbescherming: <a href=\"mailto:Functionaris.Gegevensbescherming@amsterdam.nl\">Functionaris.Gegevensbescherming@amsterdam.nl</a>",
+                        "<strong>GGD Brabant-Zuidoost</strong>: Clausplein 10, 5611 XP Eindhoven, <a href=\"https://www.ggdbzo.nl\">www.ggdbzo.nl</a>, (088) 003 1100, Functionaris Gegevensbescherming: <a href=\"mailto:functionarisgegevensbescherming@ggdbzo.nl\">functionarisgegevensbescherming@ggdbzo.nl</a>",
+                        "<strong>GGD Drenthe</strong>: Mien Ruysweg 1, 9408 KA Assen, <a href=\"https://www.ggddrenthe.nl\">www.ggddrenthe.nl</a>, (0592) 30 63 00, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@ggddrenthe.nl\">privacy@ggddrenthe.nl</a>",
+                        "<strong>GGD Flevoland</strong>: Noorderwagenstraat 2, 8223 AM Lelystad, <a href=\"https://www.ggdflevoland.nl\">www.ggdflevoland.nl</a>, (0320) 276211, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@ggdflevoland.nl\">privacy@ggdflevoland.nl</a>",
+                        "<strong>GGD Fryslân</strong>: Harlingertrekweg 58, 8913 HR Leeuwarden, <a href=\"https://www.ggdfryslan.nl\">www.ggdfryslan.nl</a>, (088) 229 9222, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@vrfryslan.nl\">privacy@vrfryslan.nl</a>",
+                        "<strong>GGD Gelderland-Zuid</strong>: Groenewoudseweg 275, 6524 TV Nijmegen, <a href=\"https://www.ggdgelderlandzuid.nl\">www.ggdgelderlandzuid.nl</a>, (088) 144 7144, Functionaris Gegevensbescherming: <a href=\"mailto:fg@vrgz.nl\">fg@vrgz.nl</a>",
+                        "<strong>GGD Gooi- en Vechtstreek</strong>: Burgemeester de Bordesstraat 80, 1404 GZ Bussum, <a href=\"https://www.ggdgv.nl\">www.ggdgv.nl</a>, (035) 692 6222, Functionaris Gegevensbescherming: <a href=\"mailto:fg@regiogv.nl\">fg@regiogv.nl</a>",
+                        "<strong>GGD Groningen</strong>: Hanzeplein 120, 9713 GW Groningen, <a href=\"https://www.ggd.groningen.nl\">www.ggd.groningen.nl</a>, (050) 367 40 00, Functionaris Gegevensbescherming: <a href=\"mailto:fg@ggd.groningen.nl\">fg@ggd.groningen.nl</a>",
+                        "<strong>GGD Haaglanden</strong>: Westeinde 128, 2512 HE Den Haag, <a href=\"https://www.ggdhaaglanden.nl\">www.ggdhaaglanden.nl</a>, (088) 355 0100, Functionaris Gegevensbescherming: <a href=\"mailto:gegevensbescherming@denhaag.nl\">gegevensbescherming@denhaag.nl</a>",
+                        "<strong>GGD Hart voor Brabant</strong>: Reitseplein 3, 5037 AA Tilburg, <a href=\"https://www.ggdhvb.nl\">www.ggdhvb.nl</a>, (0900) 4636443, Functionaris Gegevensbescherming: <a href=\"mailto:functionarisgegevensbescherming@ggdhvb.nl\">functionarisgegevensbescherming@ggdhvb.nl</a>",
+                        "<strong>GGD Hollands-Midden</strong>: Parmentierweg 49 2316 ZV Leiden, <a href=\"https://www.ggdhm.nl\">www.ggdhm.nl</a>, (088) 308 30 00, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@ggdhm.nl\">privacy@ggdhm.nl</a>",
+                        "<strong>GGD Hollands-Noorden</strong>: Hertog Aalbrechtweg 22, 1823 DL Alkmaar, <a href=\"https://www.ggdhollandsnoorden.nl\">www.ggdhollandsnoorden.nl</a>, (088) 01 00 500, Functionaris Gegevensbescherming: <a href=\"mailto:fg@ggdhn.nl\">fg@ggdhn.nl</a>",
+                        "<strong>GGD IJsselland</strong>: Schurenstraat 8A, 7413 RA Deventer, <a href=\"https://www.ggdijsselland.nl\">www.ggdijsselland.nl</a>, (038) 428 1428, Functionaris Gegevensbescherming: <a href=\"mailto:fg@ggdijsselland.nl\">fg@ggdijsselland.nl</a>",
+                        "<strong>GGD Kennemerland</strong>: Zijlweg 200, 2015 CK Haarlem, <a href=\"https://www.ggdkennemerland.nl\">www.ggdkennemerland.nl</a>, (023) 515 9500, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@vrk.nl\">privacy@vrk.nl</a>",
+                        "<strong>GGD Limburg-Noord</strong>: Drie Decembersingel 50, 5921 AC Venlo, <a href=\"https://www.ggdlimburgnoord.nl\">www.ggdlimburgnoord.nl</a>, (088) 11 91 200, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@vrln.nl\">privacy@vrln.nl</a>",
+                        "<strong>GGD Noord- en Oost-Gelderland</strong>: Rijksstraatweg 65, 7231 AC Warnsveld <a href=\"https://www.ggdnog.nl\">www.ggdnog.nl</a>, (088) 443 30 00, Functionaris Gegevensbescherming: <a href=\"mailto:fg@ggdnog.nl\">fg@ggdnog.nl</a>",
+                        "<strong>GGD regio Utrecht</strong>: De Dreef 5, 3706 BR Zeist, <a href=\"https://www.ggdru.nl\">www.ggdru.nl</a>, (030) 608 60 86, Functionaris Gegevensbescherming: <a href=\"mailto:privacyloket@ggdru.nl\">privacyloket@ggdru.nl</a>",
+                        "<strong>GGD Rotterdam-Rijnmond</strong>: Schiedamsedijk 95, 3011 EN Rotterdam, <a href=\"https://www.ggdrotterdamrijnmond.nl\">www.ggdrotterdamrijnmond.nl</a>, (010) 433 9966, Functionaris Gegevensbescherming: <a href=\"mailto:fg@rotterdam.nl\">fg@rotterdam.nl</a>",
+                        "<strong>GGD Twente</strong>: Nijverheidstraat 30, 7511 JM Enschede, <a href=\"https://www.ggdtwente.nl\">www.ggdtwente.nl</a>, (053) 487 6888, Functionaris Gegevensbescherming: <a href=\"mailto:fg@regiotwente.nl\">fg@regiotwente.nl</a>",
+                        "<strong>GGD West-Brabant</strong>: Doornboslaan 225-227, 4816CZ Breda, <a href=\"https://www.ggdwestbrabant.nl\">www.ggdwestbrabant.nl</a>, (076) 528 2000, Functionaris Gegevensbescherming: <a href=\"mailto:functionarisgegevensbescherming@ggdwestbrabant.nl\">functionarisgegevensbescherming@ggdwestbrabant.nl</a>",
+                        "<strong>GGD Zaanstreek/Waterland</strong>: Vurehout 2, 1507 EC Zaandam, <a href=\"https://www.ggdzw.nl\">www.ggdzw.nl</a>, (0900) 2545454, Functionaris Gegevensbescherming: <a href=\"mailto:privacy@ggdzw.nl\">privacy@ggdzw.nl</a>",
+                        "<strong>GGD Zeeland</strong>: Westwal 37, 4461 CM Goes, <a href=\"https://www.ggdzeeland.nl\">www.ggdzeeland.nl</a>, (0113) 249 400, Functionaris Gegevensbescherming: <a href=\"mailto:informatieveiligheid@ggdzeeland.nl\">informatieveiligheid@ggdzeeland.nl</a>",
+                        "<strong>GGD Zuid-Limburg</strong>: Het Overloon 2, 6411 TE Heerlen, <a href=\"https://www.ggdzl.nl\">www.ggdzl.nl</a>, (088) 880 5000, Functionaris Gegevensbescherming: <a href=\"mailto:functionarisAP@ggdzl.nl\">functionarisAP@ggdzl.nl</a>",
+                        "<strong>Veiligheids- en Gezondheidsregio Gelderland-Midden</strong>: Schelmseweg 93A, 6816 SJ Arnhem, <a href=\"https://www.vggm.nl\">www.vggm.nl</a>, (0800) 8446000, Functionaris Gegevensbescherming: <a href=\"mailto:functionarisgegevensbescherming@vggm.nl\">functionarisgegevensbescherming@vggm.nl</a>"
+                    ]
+                }
+            ]
+        },
+        "reportVulnerabilityPage": {
+            "pageTitle": "Kwetsbaarheid melden",
+            "title": "Kwetsbaarheid melden",
+            "paragraphs": [
+                "Ontdek je een zwakke plek of kwetsbaarheid op deze website? Dat willen we graag weten. Meld de kwetsbaarheid via <a href=\"mailto:security@ggdcontact.nl\">security@ggdcontact.nl</a>, dan bekijken wij het probleem en lossen dit zo snel mogelijk op."
+            ]
+        },
+        "tokenPage": {
+            "next": "Volgende",
+            "pageTitle": "Inloggen MijnGGDContact",
+            "title": "Inloggen MijnGGDContact",
+            "paragraphs": ["De GGD heeft je een eenmalige code gemaild waarmee je het bericht kunt openen."],
+            "email": {
+                "label": "E-mailadres",
+                "description": "Op welk adres heb je de e-mail ontvangen?"
+            },
+            "pairingCode": {
+                "label": "Eenmalige code",
+                "description": "Vul de code (6 karakters) uit de e-mail in"
+            }
+        },
+        "twoFactorPage": {
+            "pageTitle": "Inloggen MijnGGDContact",
+            "state": {
+                "loading": {
+                    "title": "Inloggen met {otpType}"
+                },
+                "otpRequest": {
+                    "title": "Inloggen met {otpType}",
+                    "paragraphs": ["Een 6-cijferige code wordt per sms verstuurd naar {phoneNumber}."],
+                    "button": "Code versturen"
+                },
+                "otpVerification": {
+                    "title": "Vul de {otpType} in",
+                    "paragraphs": [
+                        "Een 6-cijferige code is per sms verstuurd naar {phoneNumber}. Vul die code hier in."
+                    ],
+                    "button": "Bericht openen"
+                }
+            },
+            "retry": {
+                "ctaButton": "Stuur mij een nieuwe code",
+                "ctaResponse": "Code opnieuw verstuurd",
+                "infoTitle": "Geen sms ontvangen?",
+                "infoText": "Schakel je telefoon uit en start hem opnieuw op. Vaak komt de sms dan alsnog binnen."
+            },
+            "wrongPhoneNumber": {
+                "infoButton": "Klopt het telefoonnummer niet?",
+                "ctaButton": "Mijn telefoonnummer klopt niet",
+                "ctaResponse": "Bedankt voor het doorgeven",
+                "infoText": "Geef door dat je telefoonnummer niet klopt door op de knop hieronder te klikken. Helaas is daarmee het probleem niet gelijk opgelost. Neem contact op met de afzender van de e-mail om toegang tot het bericht te krijgen."
+            }
+        }
+    },
+    "utils": {
+        "date": {
+            "datetimeShort": "d MMM H:mm",
+            "datetimeLong": "d MMMM yyyy 'om' H:mm"
+        }
+    },
+    "validation": {
+        "email": "Voer een geldig e-mailadres in: jenaam@domein.nl",
+        "digits": "{_field_} moet bestaan uit {length} cijfers",
+        "required": "{_field_} is een verplicht veld",
+        "min": "{_field_} moet uit minimaal {length} tekens bestaan",
+        "max": "{_field_} mag niet uit meer dan {length} tekens bestaan"
+    }
+}

@@ -1,0 +1,9 @@
+{{- if and (.Values.redis.enabled) (not .Values.redis.useSecret) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "app.fullname" . }}-redis
+data:
+  redis.conf: |
+    {{- .Values.redis.config | nindent 4 }}
+{{- end }}

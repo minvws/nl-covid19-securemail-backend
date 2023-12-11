@@ -1,0 +1,22 @@
+#!/bin/bash
+
+VERSION=$1
+
+if [[ -z $VERSION ]]; then
+  echo "VERSION not specified using argument"
+  exit 1
+fi
+
+CHARTS=$(find ./charts -type f -name 'Chart.yaml')
+for c in $CHARTS
+do
+  echo "INFO - Update Helm Chart $c to $VERSION"
+  docker run --rm -i -v "${PWD}":/workdir  mikefarah/yq e ".version = \"$VERSION\" | .appVersion = \"$VERSION\"" -i $c
+done
+
+VALUES=$(find ./charts -type f -name 'values.yaml')
+for v in $VALUES
+do
+  echo "INFO - Update image version in $v to $VERSION"
+  docker run --rm -i -v "${PWD}":/workdir  mikefarah/yq e ".image.tag = \"$VERSION\"" -i $v
+done

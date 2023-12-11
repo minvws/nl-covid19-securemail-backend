@@ -1,0 +1,40 @@
+html,
+body {
+    height: 100%;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+@media (max-width: $breakpoint-sm) {
+    body {
+        background-color: $white;
+    }
+}
+
+* {
+    outline-offset: 0.5rem;
+    outline: 2px solid transparent;
+
+    &:focus {
+        outline: 2px solid $primary;
+        outline-offset: 0.25rem;
+    }
+}
+
+main:focus,
+.browser-ie-11 * {
+    outline-offset: 0;
+    outline: 0;
+}
+
+#app {
+    height: 100%;
+
+    .wrapper {
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+}

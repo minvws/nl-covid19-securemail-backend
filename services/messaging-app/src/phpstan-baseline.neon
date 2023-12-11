@@ -1,0 +1,1097 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$string of method Psr\\\\Http\\\\Message\\\\StreamInterface\\:\\:write\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: app/Action/Action.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\Attachment\\\\AttachmentViewAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/Attachment/AttachmentViewAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\Message\\\\MessageIndexAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/Message/MessageIndexAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\Message\\\\MessageLinkAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/Message/MessageLinkAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\Message\\\\MessageMarkIncorrectPhoneAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/Message/MessageMarkIncorrectPhoneAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\Message\\\\MessageUnlinkAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/Message/MessageUnlinkAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\Message\\\\MessageViewAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/Message/MessageViewAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\OtpCode\\\\OtpCodeOptionsAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/OtpCode/OtpCodeOptionsAction.php
+
+		-
+			message: "#^Parameter \\#2 \\$phoneNumber of method MinVWS\\\\MessagingApp\\\\Resource\\\\OtpCodeResource\\:\\:convert\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: app/Action/OtpCode/OtpCodeOptionsAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Action\\\\OtpCode\\\\OtpCodeRequestAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/OtpCode/OtpCodeRequestAction.php
+
+		-
+			message: "#^Parameter \\#2 \\$phoneNumber of method MinVWS\\\\MessagingApp\\\\Resource\\\\OtpCodeResource\\:\\:convert\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: app/Action/OtpCode/OtpCodeRequestAction.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Command/QueueWorkCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$level of class Monolog\\\\Handler\\\\StreamHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', string given\\.$#"
+			count: 1
+			path: app/Factory/LoggerFactory.php
+
+		-
+			message: "#^Parameter \\#3 \\$level of class Monolog\\\\Handler\\\\RotatingFileHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', string given\\.$#"
+			count: 1
+			path: app/Factory/LoggerFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$min \\(0\\) of function random_int expects lower number than parameter \\#2 \\$max \\(int\\<\\-1, max\\>\\)\\.$#"
+			count: 1
+			path: app/Helpers/CodeGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$message of function sodium_crypto_box expects string, string\\|false given\\.$#"
+			count: 1
+			path: app/Helpers/EncryptionHelper.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Queue/QueueWorker.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Queue\\\\QueueWorker\\:\\:getFromConfigOrDefault\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: app/Queue/QueueWorker.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of static method MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\DeleteMessage\\:\\:jsonDeserialize\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: app/Queue/QueueWorker.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of static method MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\Mail\\:\\:jsonDeserialize\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: app/Queue/QueueWorker.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of static method MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\Notification\\:\\:jsonDeserialize\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: app/Queue/QueueWorker.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of static method MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\SaveMessage\\:\\:jsonDeserialize\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: app/Queue/QueueWorker.php
+
+		-
+			message: "#^Parameter \\#16 \\$expiresAt of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\SaveMessage constructor expects Carbon\\\\CarbonInterface\\|null, Carbon\\\\CarbonImmutable\\|false\\|null given\\.$#"
+			count: 1
+			path: app/Queue/Task/DTO/SaveMessage.php
+
+		-
+			message: "#^Parameter \\#5 \\$aliasExpiresAt of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\SaveMessage constructor expects Carbon\\\\CarbonInterface\\|null, Carbon\\\\CarbonImmutable\\|false\\|null given\\.$#"
+			count: 1
+			path: app/Queue/Task/DTO/SaveMessage.php
+
+		-
+			message: "#^Class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\SaveMessage referenced with incorrect case\\: MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\Dto\\\\SaveMessage\\.$#"
+			count: 1
+			path: app/Queue/Task/MessageSaveProcessor.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Psr\\\\Container\\\\ContainerInterface\\|null\\.$#"
+			count: 4
+			path: app/Queue/Task/TaskProcessorFactory.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\TaskProcessorFactory\\:\\:byQueueList\\(\\) should return MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\TaskProcessor but returns mixed\\.$#"
+			count: 4
+			path: app/Queue/Task/TaskProcessorFactory.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$created_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$email_address\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$expires_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$mailbox_uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$platform\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$platform_identifier\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Parameter \\#7 \\$createdAt of class MinVWS\\\\MessagingApp\\\\Model\\\\Alias constructor expects Carbon\\\\CarbonInterface, Carbon\\\\CarbonImmutable\\|null given\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$filename\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$message_uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$mime_type\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAttachmentRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$pseudo_bsn\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMailboxRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMailboxRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$alias_uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$attachment_count\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$attachments_encryption_key\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$created_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$expires_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$first_read_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$footer\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$from_email\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$from_name\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$identity_required\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$mailbox_uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$notification_sent_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$otp_incorrect_phone_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$phone_number\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$platform\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$subject\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$text\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$to_email\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$to_name\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 2
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Parameter \\#15 \\$createdAt of class MinVWS\\\\MessagingApp\\\\Model\\\\Message constructor expects Carbon\\\\CarbonInterface, Carbon\\\\CarbonImmutable\\|null given\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$code\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$message_uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$type\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$valid_until\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseOtpCodeRepository.php
+
+		-
+			message: "#^Parameter \\#5 \\$validUntil of class MinVWS\\\\MessagingApp\\\\Model\\\\OtpCode constructor expects Carbon\\\\CarbonInterface, Carbon\\\\CarbonImmutable\\|null given\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseOtpCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$alias_uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$code\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$message_uuid\\.$#"
+			count: 2
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$paired_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$previous_code\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 2
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$valid_until\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Parameter \\#5 \\$validUntil of class MinVWS\\\\MessagingApp\\\\Model\\\\PairingCode constructor expects Carbon\\\\CarbonInterface, Carbon\\\\CarbonImmutable\\|null given\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabasePairingCodeRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseRepository\\:\\:convertStringToDate\\(\\) should return Carbon\\\\CarbonImmutable\\|null but returns Carbon\\\\CarbonImmutable\\|false\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeTypeService\\:\\:sendOtpCode\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Service/OtpCode/OtpCodeTypeService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeTypeServiceFactory\\:\\:fromString\\(\\) should return MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeTypeService but returns mixed\\.$#"
+			count: 1
+			path: app/Service/OtpCode/OtpCodeTypeServiceFactory.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Service/OtpCode/Sms/SmsService.php
+
+		-
+			message: "#^Parameter \\#2 \\$recipient of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\Sms\\\\SmsMessage constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: app/Service/OtpCode/Sms/SmsService.php
+
+		-
+			message: "#^Parameter \\#1 \\$route of method Spryng\\\\SpryngRestApi\\\\Objects\\\\Message\\:\\:setRoute\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Service/OtpCode/Sms/SmsSpryngService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService\\:\\:renew\\(\\) has parameter \\$pairingCodeUuid with no type specified\\.$#"
+			count: 1
+			path: app/Service/PairingCodeService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Service\\\\TokenService\\:\\:getAttributeFromToken\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Service/TokenService.php
+
+		-
+			message: "#^Parameter \\#1 \\$values of method MinVWS\\\\MessagingApp\\\\Service\\\\ValidationService\\:\\:getValueFromArray\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: app/Service/TokenService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Service\\\\ValidationService\\:\\:getValueFromArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Service/ValidationService.php
+
+		-
+			message: "#^Cannot call method getResponseFactory\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/application/container.php
+
+		-
+			message: "#^Cannot call method getRouteCollector\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/application/container.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Psr\\\\Container\\\\ContainerInterface\\|null\\.$#"
+			count: 2
+			path: config/application/middleware.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/application/middleware.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 2
+			path: config/console/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$logger of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MailProcessor constructor expects Psr\\\\Log\\\\LoggerInterface, mixed given\\.$#"
+			count: 1
+			path: config/console/container.php
+
+		-
+			message: "#^Parameter \\#2 \\$mailer of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MailProcessor constructor expects Symfony\\\\Component\\\\Mailer\\\\MailerInterface, mixed given\\.$#"
+			count: 1
+			path: config/console/container.php
+
+		-
+			message: "#^Parameter \\#4 \\$auditService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MailProcessor constructor expects MinVWS\\\\Audit\\\\AuditService, mixed given\\.$#"
+			count: 1
+			path: config/console/container.php
+
+		-
+			message: "#^Anonymous function should return Illuminate\\\\Database\\\\ConnectionInterface but returns mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Anonymous function should return Predis\\\\ClientInterface but returns mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method addConsoleHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method addFileHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method addNullHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method addTestHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method createInstance\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 32
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method getCallableResolver\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method getPdo\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method getResponseFactory\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$auditRepository of class MinVWS\\\\Audit\\\\AuditService constructor expects MinVWS\\\\Audit\\\\Repositories\\\\AuditRepository, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$codeGenerator of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeService constructor expects MinVWS\\\\MessagingApp\\\\Helpers\\\\CodeGenerator, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$codeGenerator of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects MinVWS\\\\MessagingApp\\\\Helpers\\\\CodeGenerator, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$logger of class MinVWS\\\\DBCO\\\\Encryption\\\\Security\\\\HSMSecurityModule constructor expects Psr\\\\Log\\\\LoggerInterface, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$responseFactory of class Selective\\\\Validation\\\\Middleware\\\\ValidationExceptionMiddleware constructor expects Psr\\\\Http\\\\Message\\\\ResponseFactoryInterface, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$securityModule of class MinVWS\\\\MessagingApp\\\\Service\\\\SecurityService constructor expects MinVWS\\\\DBCO\\\\Encryption\\\\Security\\\\SecurityModule, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#2 \\$logger of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects Psr\\\\Log\\\\LoggerInterface, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#2 \\$otpCodeRepository of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeService constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\OtpCodeRepository, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#2 \\$securityCache of class MinVWS\\\\MessagingApp\\\\Service\\\\SecurityService constructor expects MinVWS\\\\DBCO\\\\Encryption\\\\Security\\\\SecurityCache, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#3 \\$otpCodeTypeServiceFactory of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeService constructor expects MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeTypeServiceFactory, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#3 \\$pairingCodeRepository of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\PairingCodeRepository, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#4 \\$queueClient of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Parameter \\#6 \\$logger of class Slim\\\\Middleware\\\\ErrorMiddleware constructor expects Psr\\\\Log\\\\LoggerInterface\\|null, mixed given\\.$#"
+			count: 1
+			path: config/shared/container.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 3
+			path: config/shared/repositories.php
+
+		-
+			message: "#^Parameter \\#1 \\$bsnRepository of class MinVWS\\\\MessagingApp\\\\Service\\\\BsnService constructor expects SecureMail\\\\Shared\\\\Application\\\\Repositories\\\\PseudoBsnRepository, mixed given\\.$#"
+			count: 1
+			path: config/shared/repositories.php
+
+		-
+			message: "#^Parameter \\#3 \\$logger of class SecureMail\\\\Shared\\\\Application\\\\Repositories\\\\Mittens\\\\MittensPseudoBsnRepository constructor expects Psr\\\\Log\\\\LoggerInterface, mixed given\\.$#"
+			count: 1
+			path: config/shared/repositories.php
+
+		-
+			message: "#^Parameter \\#1 \\$className of method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
+			count: 1
+			path: tests/CommandTestCase.php
+
+		-
+			message: "#^Unable to resolve the template type RealInstanceType in call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\)$#"
+			count: 1
+			path: tests/CommandTestCase.php
+
+		-
+			message: "#^Cannot call method handle\\(\\) on Slim\\\\App\\|null\\.$#"
+			count: 3
+			path: tests/Feature/Action/ActionTestCase.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Action\\\\ActionTestCase\\:\\:post\\(\\) has parameter \\$body with no type specified\\.$#"
+			count: 1
+			path: tests/Feature/Action/ActionTestCase.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Action\\\\ActionTestCase\\:\\:postAuthenticated\\(\\) has parameter \\$body with no type specified\\.$#"
+			count: 1
+			path: tests/Feature/Action/ActionTestCase.php
+
+		-
+			message: "#^Parameter \\#2 \\$key of static method Firebase\\\\JWT\\\\JWT\\:\\:encode\\(\\) expects resource\\|string, OpenSSLAsymmetricKey\\|false given\\.$#"
+			count: 1
+			path: tests/Feature/Action/JwtValidationTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\) expects Countable\\|iterable, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Action/Message/MessageIndexActionTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\AliasRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 2
+			path: tests/Feature/Action/Message/MessageLinkActionTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 2
+			path: tests/Feature/Action/Message/MessageLinkActionTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\PairingCodeRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Action/Message/MessageLinkActionTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 2
+			path: tests/Feature/Action/Message/MessageUnlinkActionTest.php
+
+		-
+			message: "#^Cannot access offset 'attachments' on mixed\\.$#"
+			count: 1
+			path: tests/Feature/Action/Message/MessageViewActionTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function base64_encode expects string, string\\|null given\\.$#"
+			count: 1
+			path: tests/Feature/Action/Message/MessageViewActionTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$messageUuid of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\Notification constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: tests/Feature/Action/PairingCode/PairingCodeRenewActionTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$aliasUuid of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\DTO\\\\Notification constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: tests/Feature/Action/PairingCode/PairingCodeRenewActionTest.php
+
+		-
+			message: "#^Cannot call method find\\(\\) on Symfony\\\\Component\\\\Console\\\\Application\\|null\\.$#"
+			count: 2
+			path: tests/Feature/Command/TestDataGenerateCommandTest.php
+
+		-
+			message: "#^Cannot call method find\\(\\) on Symfony\\\\Component\\\\Console\\\\Application\\|null\\.$#"
+			count: 2
+			path: tests/Feature/Command/TestDatabasePurgeCommandTest.php
+
+		-
+			message: "#^Cannot call method beginTransaction\\(\\) on mixed\\.$#"
+			count: 1
+			path: tests/Feature/CommandFeatureTestCase.php
+
+		-
+			message: "#^Cannot call method save\\(\\) on mixed\\.$#"
+			count: 6
+			path: tests/Feature/CommandFeatureTestCase.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\CommandFeatureTestCase\\:\\:\\$databaseConnection \\(Illuminate\\\\Database\\\\ConnectionInterface\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/CommandFeatureTestCase.php
+
+		-
+			message: "#^Cannot call method beginTransaction\\(\\) on mixed\\.$#"
+			count: 1
+			path: tests/Feature/FeatureTestCase.php
+
+		-
+			message: "#^Cannot call method save\\(\\) on mixed\\.$#"
+			count: 6
+			path: tests/Feature/FeatureTestCase.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\FeatureTestCase\\:\\:\\$databaseConnection \\(Illuminate\\\\Database\\\\ConnectionInterface\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/FeatureTestCase.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Queue/QueueWorkerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$config of class MinVWS\\\\MessagingApp\\\\Queue\\\\QueueWorker constructor expects Laminas\\\\Config\\\\Config, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/QueueWorkerTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$queueClient of class MinVWS\\\\MessagingApp\\\\Queue\\\\QueueWorker constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient, MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/QueueWorkerTest.php
+
+		-
+			message: "#^Parameter \\#4 \\$taskProcessorFactory of class MinVWS\\\\MessagingApp\\\\Queue\\\\QueueWorker constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\TaskProcessorFactory, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/QueueWorkerTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/DeleteMessageProcessorTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$messageRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageDeleteProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository, MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/DeleteMessageProcessorTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$auditService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageDeleteProcessor constructor expects MinVWS\\\\Audit\\\\AuditService, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/DeleteMessageProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Symfony\\\\Component\\\\Mailer\\\\MailerInterface\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MailProcessorTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$mailer of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MailProcessor constructor expects Symfony\\\\Component\\\\Mailer\\\\MailerInterface, PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Symfony\\\\Component\\\\Mailer\\\\MailerInterface given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MailProcessorTest.php
+
+		-
+			message: "#^Parameter \\#4 \\$auditService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MailProcessor constructor expects MinVWS\\\\Audit\\\\AuditService, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MailProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aliasRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AliasRepository, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#10 \\$bsnService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Service\\\\BsnService, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$attachmentRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$auditService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\Audit\\\\AuditService, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#5 \\$mailboxRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\MailboxRepository, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#6 \\$markdownConverter of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects League\\\\CommonMark\\\\MarkdownConverterInterface, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#7 \\$messageRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#8 \\$queueClient of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Parameter \\#9 \\$templateService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Service\\\\TwigTemplateService, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorAliasTest.php
+
+		-
+			message: "#^Call to an undefined method League\\\\CommonMark\\\\MarkdownConverterInterface\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 4
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 4
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\AliasRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 6
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\MailboxRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 3
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Service\\\\TwigTemplateService\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 4
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aliasRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AliasRepository, MinVWS\\\\MessagingApp\\\\Repository\\\\AliasRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 3
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aliasRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AliasRepository, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#10 \\$bsnService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Service\\\\BsnService, mixed given\\.$#"
+			count: 5
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$attachmentRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository, MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$attachmentRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository, mixed given\\.$#"
+			count: 4
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$auditService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\Audit\\\\AuditService, mixed given\\.$#"
+			count: 5
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#5 \\$mailboxRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\MailboxRepository, mixed given\\.$#"
+			count: 5
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#6 \\$markdownConverter of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects League\\\\CommonMark\\\\MarkdownConverterInterface, League\\\\CommonMark\\\\MarkdownConverterInterface\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 5
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#7 \\$messageRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository, MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 3
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#7 \\$messageRepository of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\MessageRepository, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#8 \\$queueClient of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient, MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 4
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#8 \\$queueClient of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Parameter \\#9 \\$templateService of class MinVWS\\\\MessagingApp\\\\Queue\\\\Task\\\\MessageSaveProcessor constructor expects MinVWS\\\\MessagingApp\\\\Service\\\\TwigTemplateService, MinVWS\\\\MessagingApp\\\\Service\\\\TwigTemplateService\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 5
+			path: tests/Feature/Queue/Task/MessageSaveProcessorTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Repository\\\\Database\\\\DatabaseAliasRepositoryTest\\:\\:\\$aliasRepository \\(MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseAliasRepository\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseAliasRepositoryTest.php
+
+		-
+			message: "#^Cannot access property \\$uuid on mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseAttachmentRepositoryTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Repository\\\\Database\\\\DatabaseAttachmentRepositoryTest\\:\\:\\$attachmentRepository \\(MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseAttachmentRepository\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseAttachmentRepositoryTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Repository\\\\Database\\\\DatabaseMailboxRepositoryTest\\:\\:\\$mailboxRepository \\(MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseMailboxRepository\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseMailboxRepositoryTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\DBCO\\\\Encryption\\\\Security\\\\EncryptionHelper\\|Mockery\\\\MockInterface\\:\\:expects\\(\\)\\.$#"
+			count: 2
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Call to an undefined method Mockery\\\\ExpectationInterface\\|Mockery\\\\ExpectsHigherOrderMessage\\:\\:method\\(\\)\\.$#"
+			count: 2
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aliasUuid of method MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseMessageRepository\\:\\:getByAliasUuid\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$connection of class MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseMessageRepository constructor expects Illuminate\\\\Database\\\\ConnectionInterface, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$encryptionHelper of class MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseMessageRepository constructor expects MinVWS\\\\DBCO\\\\Encryption\\\\Security\\\\EncryptionHelper, MinVWS\\\\DBCO\\\\Encryption\\\\Security\\\\EncryptionHelper\\|Mockery\\\\MockInterface given\\.$#"
+			count: 2
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$hashHelper of class MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseMessageRepository constructor expects MinVWS\\\\MessagingApp\\\\Helpers\\\\HashHelper, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Repository\\\\Database\\\\DatabaseMessageRepositoryTest\\:\\:\\$messageRepository \\(MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseMessageRepository\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Repository\\\\Database\\\\DatabaseOtpCodeRepositoryTest\\:\\:\\$otpCodeRepository \\(MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabaseOtpCodeRepository\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabaseOtpCodeRepositoryTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Repository\\\\Database\\\\DatabasePairingCodeRepositoryTest\\:\\:\\$pairingCodeRepository \\(MinVWS\\\\MessagingApp\\\\Repository\\\\Database\\\\DatabasePairingCodeRepository\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Repository/Database/DatabasePairingCodeRepositoryTest.php
+
+		-
+			message: "#^Call to an undefined method League\\\\Flysystem\\\\FilesystemOperator\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on DI\\\\Container\\|null\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Cannot call method set\\(\\) on DI\\\\Container\\|null\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$attachmentRepository of class MinVWS\\\\MessagingApp\\\\Service\\\\AttachmentService constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository, MinVWS\\\\MessagingApp\\\\Repository\\\\AttachmentRepository\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$filesystem of class MinVWS\\\\MessagingApp\\\\Service\\\\AttachmentService constructor expects League\\\\Flysystem\\\\FilesystemOperator, League\\\\Flysystem\\\\FilesystemOperator\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Property MinVWS\\\\MessagingApp\\\\Tests\\\\Feature\\\\Service\\\\AttachmentServiceTest\\:\\:\\$attachmentService \\(MinVWS\\\\MessagingApp\\\\Service\\\\AttachmentService\\) does not accept mixed\\.$#"
+			count: 1
+			path: tests/Feature/Service/AttachmentServiceTest.php
+
+		-
+			message: "#^Call to an undefined method MinVWS\\\\MessagingApp\\\\Helpers\\\\CodeGenerator\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Feature/Service/OtpCode/OtpCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$codeGenerator of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeService constructor expects MinVWS\\\\MessagingApp\\\\Helpers\\\\CodeGenerator, MinVWS\\\\MessagingApp\\\\Helpers\\\\CodeGenerator\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Feature/Service/OtpCode/OtpCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$otpCodeRepository of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeService constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\OtpCodeRepository, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Service/OtpCode/OtpCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$otpCodeTypeServiceFactory of class MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeService constructor expects MinVWS\\\\MessagingApp\\\\Service\\\\OtpCode\\\\OtpCodeTypeServiceFactory, mixed given\\.$#"
+			count: 1
+			path: tests/Feature/Service/OtpCode/OtpCodeServiceTest.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 2
+			path: tests/Feature/Service/OtpCode/Sms/SmsSpryngServiceTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$codeGenerator of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects MinVWS\\\\MessagingApp\\\\Helpers\\\\CodeGenerator, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Service/PairingCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/Feature/Service/PairingCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$pairingCodeRepository of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects MinVWS\\\\MessagingApp\\\\Repository\\\\PairingCodeRepository, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Service/PairingCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#4 \\$queueClient of class MinVWS\\\\MessagingApp\\\\Service\\\\PairingCodeService constructor expects MinVWS\\\\MessagingApp\\\\Queue\\\\QueueClient, mixed given\\.$#"
+			count: 2
+			path: tests/Feature/Service/PairingCodeServiceTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$className of method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Unable to resolve the template type RealInstanceType in call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\)$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Tests\\\\TestHelper\\\\ModelFactory\\:\\:convert\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/TestHelper/ModelFactory.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Tests\\\\TestHelper\\\\ModelFactory\\:\\:convert\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: tests/TestHelper/ModelFactory.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Tests\\\\TestHelper\\\\ModelFactory\\:\\:getAttribute\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/TestHelper/ModelFactory.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApp\\\\Tests\\\\TestHelper\\\\ModelFactory\\:\\:getAttribute\\(\\) has parameter \\$default with no type specified\\.$#"
+			count: 1
+			path: tests/TestHelper/ModelFactory.php
+

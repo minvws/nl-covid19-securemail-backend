@@ -1,0 +1,28 @@
+.b-dropdown {
+    .dropdown-toggle {
+        &::after {
+            margin-left: 0.5rem;
+        }
+
+        &:not(:focus) {
+            box-shadow: none;
+        }
+    }
+
+    &.show > .btn-link.dropdown-toggle {
+        color: $primary;
+        @include gradient-bg(rgba(#000000, 5%));
+    }
+
+    .dropdown-menu {
+        position: absolute;
+
+        .dropdown-item {
+            outline-offset: 0;
+
+            &[aria-current] {
+                font-weight: bold;
+            }
+        }
+    }
+}

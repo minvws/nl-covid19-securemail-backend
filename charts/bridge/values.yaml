@@ -1,0 +1,72 @@
+# Default values for bridge
+
+replicaCount: 1
+image:
+  repository: ghcr.io/minvws/nl-covid19-securemail-backend-private/bridge
+  tag: 0.0.0
+  pullPolicy: IfNotPresent
+imagePullSecrets:
+# metrics-server add-on required
+hpa:
+  enabled: false
+  maxReplicas: 10
+  # average total CPU usage per pod (1-100)
+  cpu:
+  # average memory usage per pod (100Mi-1Gi)
+  memory:
+# Bridge
+bridge:
+  # args: ["process:clients"]
+  # args: ["process:caseresults"]
+  args:
+# Environment variables that will be passed into the container
+# env:
+  # DEBUG: "false"
+  # LOG_CHANNEL: "stderr"
+  # LOG_LEVEL: "debug"
+  # REDIS_HOST: redis-securemail-bridge
+  # REDIS_PORT: "26379"
+  # REDIS_SENTINEL_SERVICE: mymaster
+  # MESSAGING_APP_BASE_URI: http://messaging-app:8080/v1/
+env: {}
+# Environment variables secrets that will be passed into the container.
+# When set. This will generate a Secret with the name `app.fullname`.
+# When not set. You can create a secret yourself with the name `app.fullname`.
+envSecrets: {}
+# Configure volumes for mounting files (e.g. using ConfigMap, Secret) in your containers
+volumeMounts: ""
+volumes: ""
+serviceAccount:
+  # Specifies whether a service account should be created
+  enabled: false
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+serviceMonitor:
+  enabled: false
+  interval: 15s
+livenessProbe: {}
+# livenessProbe:
+#   exec:
+#     command:
+#       - /bin/sh
+#       - "-c"
+#       - /src/bridge
+#       - status
+#   initialDelaySeconds: 5
+#   periodSeconds: 30
+#   timeoutSeconds: 5
+#   failureThreshold: 10
+#   successThreshold: 1
+resources:
+  limits:
+  requests:
+    cpu: 1m
+    memory: 16Mi
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}

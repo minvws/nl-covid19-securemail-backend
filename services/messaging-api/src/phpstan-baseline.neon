@@ -1,0 +1,352 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Action\\\\MessageDeleteAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/MessageDeleteAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Action\\\\MessageGetStatusUpdatesAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/MessageGetStatusUpdatesAction.php
+
+		-
+			message: "#^Cannot call method getField\\(\\) on Selective\\\\Validation\\\\ValidationError\\|null\\.$#"
+			count: 1
+			path: app/Action/MessagePostAction.php
+
+		-
+			message: "#^Cannot call method getFirstError\\(\\) on Selective\\\\Validation\\\\ValidationResult\\|null\\.$#"
+			count: 1
+			path: app/Action/MessagePostAction.php
+
+		-
+			message: "#^Cannot call method getMessage\\(\\) on Selective\\\\Validation\\\\ValidationError\\|null\\.$#"
+			count: 1
+			path: app/Action/MessagePostAction.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Action\\\\MessagePostAction\\:\\:action\\(\\) should return Psr\\\\Http\\\\Message\\\\ResponseInterface but returns mixed\\.$#"
+			count: 1
+			path: app/Action/MessagePostAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$platform of method MinVWS\\\\MessagingApi\\\\Action\\\\MessagePostAction\\:\\:getMessageFromRequestBody\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: app/Action/MessagePostAction.php
+
+		-
+			message: "#^Parameter \\#2 \\$level of class Monolog\\\\Handler\\\\StreamHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', string given\\.$#"
+			count: 1
+			path: app/Factory/LoggerFactory.php
+
+		-
+			message: "#^Parameter \\#3 \\$level of class Monolog\\\\Handler\\\\RotatingFileHandler constructor expects 100\\|200\\|250\\|300\\|400\\|500\\|550\\|600\\|'ALERT'\\|'alert'\\|'CRITICAL'\\|'critical'\\|'DEBUG'\\|'debug'\\|'EMERGENCY'\\|'emergency'\\|'ERROR'\\|'error'\\|'INFO'\\|'info'\\|'NOTICE'\\|'notice'\\|'WARNING'\\|'warning', string given\\.$#"
+			count: 1
+			path: app/Factory/LoggerFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$separator of function explode expects non\\-empty\\-string, string given\\.$#"
+			count: 2
+			path: app/Middleware/JwtSecretsHelper.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$mailbox_digid_identifier\\.$#"
+			count: 2
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$updated_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Parameter \\#3 \\$updatedAt of class MinVWS\\\\MessagingApi\\\\Model\\\\GetAlias constructor expects Carbon\\\\CarbonImmutable, Carbon\\\\CarbonImmutable\\|null given\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseAliasRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$bounced_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$digid_auth_failed_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$expired_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$first_read_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$notification_sent_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$otp_auth_failed_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$otp_incorrect_phone_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$received_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$revoked_at\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$uuid\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Repository\\\\Database\\\\DatabaseMessageRepository\\:\\:convertToMessage\\(\\) never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Repository\\\\Database\\\\DatabaseMessageRepository\\:\\:getStatusUpdates\\(\\) should return array\\<MinVWS\\\\MessagingApi\\\\Model\\\\GetMessage\\> but returns array\\<int, MinVWS\\\\MessagingApi\\\\Model\\\\GetMessage\\|null\\>\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseMessageRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Repository\\\\Database\\\\DatabaseRepository\\:\\:convertStringToDate\\(\\) should return Carbon\\\\CarbonImmutable\\|null but returns Carbon\\\\CarbonImmutable\\|false\\.$#"
+			count: 1
+			path: app/Repository/Database/DatabaseRepository.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 2
+			path: app/Repository/Redis/RedisMessageRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Repository\\\\Redis\\\\RedisMessageRepository\\:\\:prepareSaveMessageForTransport\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: app/Repository/Redis/RedisMessageRepository.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: app/Repository/Redis/RedisRepository.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Service\\\\ApiKeyService\\:\\:getPlatform\\(\\) should return string but returns int\\<min, \\-1\\>\\|int\\<1, max\\>\\|string\\.$#"
+			count: 1
+			path: app/Service/ApiKeyService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Service\\\\ValidationService\\:\\:getDateValueByArray\\(\\) should return Carbon\\\\CarbonImmutable\\|null but returns Carbon\\\\CarbonImmutable\\|false\\.$#"
+			count: 1
+			path: app/Service/ValidationService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Service\\\\ValidationService\\:\\:getValueByTypeFromArray\\(\\) should return MyCLabs\\\\Enum\\\\Enum but returns object\\.$#"
+			count: 1
+			path: app/Service/ValidationService.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Service\\\\ValidationService\\:\\:getValueFromArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Service/ValidationService.php
+
+		-
+			message: "#^Anonymous function should return Predis\\\\ClientInterface but returns mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method addConsoleHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method addFileHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method addNullHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method addTestHandler\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method createInstance\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 15
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method getCallableResolver\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method getResponseFactory\\(\\) on mixed\\.$#"
+			count: 2
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method getRouteCollector\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$auditRepository of class MinVWS\\\\Audit\\\\AuditService constructor expects MinVWS\\\\Audit\\\\Repositories\\\\AuditRepository, mixed given\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Parameter \\#1 \\$responseFactory of class Selective\\\\Validation\\\\Middleware\\\\ValidationExceptionMiddleware constructor expects Psr\\\\Http\\\\Message\\\\ResponseFactoryInterface, mixed given\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Parameter \\#6 \\$logger of class Slim\\\\Middleware\\\\ErrorMiddleware constructor expects Psr\\\\Log\\\\LoggerInterface\\|null, mixed given\\.$#"
+			count: 1
+			path: config/container.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Psr\\\\Container\\\\ContainerInterface\\|null\\.$#"
+			count: 1
+			path: config/middleware.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
+			count: 1
+			path: config/middleware.php
+
+		-
+			message: "#^Cannot call method handle\\(\\) on Slim\\\\App\\|null\\.$#"
+			count: 3
+			path: tests/Action/ActionTestCase.php
+
+		-
+			message: "#^Parameter \\#2 \\$key of static method Firebase\\\\JWT\\\\JWT\\:\\:encode\\(\\) expects resource\\|string, OpenSSLAsymmetricKey\\|false given\\.$#"
+			count: 1
+			path: tests/Action/JwtValidationTest.php
+
+		-
+			message: "#^Cannot access property \\$Error on mixed\\.$#"
+			count: 1
+			path: tests/Action/MessagePostActionTest.php
+
+		-
+			message: "#^Cannot access property \\$field on mixed\\.$#"
+			count: 1
+			path: tests/Action/MessagePostActionTest.php
+
+		-
+			message: "#^Cannot access property \\$message on mixed\\.$#"
+			count: 1
+			path: tests/Action/MessagePostActionTest.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on League\\\\Flysystem\\\\Filesystem\\|null\\.$#"
+			count: 1
+			path: tests/Action/MessagePostActionTest.php
+
+		-
+			message: "#^Cannot call method read\\(\\) on League\\\\Flysystem\\\\Filesystem\\|null\\.$#"
+			count: 1
+			path: tests/Action/MessagePostActionTest.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Query\\\\Builder\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 6
+			path: tests/Repository/Database/DatabaseAliasRepostitoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$builder of method MinVWS\\\\MessagingApi\\\\Tests\\\\Repository\\\\Database\\\\DatabaseAliasRepostitoryTest\\:\\:getRepository\\(\\) expects Illuminate\\\\Database\\\\Query\\\\Builder, Illuminate\\\\Database\\\\Query\\\\Builder\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Repository/Database/DatabaseAliasRepostitoryTest.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Query\\\\Builder\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:expects\\(\\)\\.$#"
+			count: 6
+			path: tests/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$builder of method MinVWS\\\\MessagingApi\\\\Tests\\\\Repository\\\\Database\\\\DatabaseMessageRepositoryTest\\:\\:getRepository\\(\\) expects Illuminate\\\\Database\\\\Query\\\\Builder, Illuminate\\\\Database\\\\Query\\\\Builder\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/Repository/Database/DatabaseMessageRepositoryTest.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\ConnectionInterface\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\:\\:method\\(\\)\\.$#"
+			count: 1
+			path: tests/Repository/Database/DatabaseRepositoryTestCase.php
+
+		-
+			message: "#^Method MinVWS\\\\MessagingApi\\\\Tests\\\\Repository\\\\Database\\\\DatabaseRepositoryTestCase\\:\\:getConnection\\(\\) should return Illuminate\\\\Database\\\\ConnectionInterface but returns Illuminate\\\\Database\\\\ConnectionInterface\\|PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\.$#"
+			count: 1
+			path: tests/Repository/Database/DatabaseRepositoryTestCase.php
+
+		-
+			message: "#^Call to an undefined method PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Predis\\\\ClientInterface\\:\\:expects\\(\\)\\.$#"
+			count: 1
+			path: tests/Repository/Redis/RedisMessageRepositoryTest.php
+
+		-
+			message: "#^Cannot call method format\\(\\) on Carbon\\\\CarbonInterface\\|null\\.$#"
+			count: 2
+			path: tests/Repository/Redis/RedisMessageRepositoryTest.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Psr\\\\Container\\\\ContainerInterface\\|null\\.$#"
+			count: 1
+			path: tests/Repository/Redis/RedisMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$client of class MinVWS\\\\MessagingApi\\\\Repository\\\\Redis\\\\RedisMessageRepository constructor expects Predis\\\\ClientInterface, PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\|Predis\\\\ClientInterface given\\.$#"
+			count: 1
+			path: tests/Repository/Redis/RedisMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$config of class MinVWS\\\\MessagingApi\\\\Repository\\\\Redis\\\\RedisMessageRepository constructor expects Laminas\\\\Config\\\\Config, mixed given\\.$#"
+			count: 1
+			path: tests/Repository/Redis/RedisMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$type of class MinVWS\\\\MessagingApi\\\\Model\\\\SaveMessage constructor expects MinVWS\\\\MessagingApi\\\\Enum\\\\MessageType, mixed given\\.$#"
+			count: 1
+			path: tests/Repository/Redis/RedisMessageRepositoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$className of method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Unable to resolve the template type RealInstanceType in call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:getMockBuilder\\(\\)$#"
+			count: 1
+			path: tests/TestCase.php
+
